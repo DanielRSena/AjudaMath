@@ -1,8 +1,3 @@
 # Fórmulas Matemáticas
 
- Algumas ferramentas prontas para a resolução de problemas. Como principais, terão:
-
-[x] 1. Baskara; <BR>
-[-] 2. Classificações de um triângulo (pela medida dos lados ou ângulos); <BR>
-[-] 3. MDC de Euclides; <BR>
-[-] 4. Cálculos estatísticos. <BR>
+ A ideia é ter um programa geral que consegue resolver e explicar várias funções e ferramentas matemáticas que podem ser úteis em algum momento. FOra o principal, terão as partes separadamente. ALém disso, terá um programa só para exercícios.
