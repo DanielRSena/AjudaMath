@@ -88,6 +88,21 @@ int main()
             }
 			opcao = 0;
 		}
+		/*		else if (opcao == x)
+		{
+ 			while (vezes == 1)
+ 			{	
+				printf("\n--------------------\n\n\t\t- Gerador de tabuada -\n");
+				printf("\n\tQual tabuada vc quer? "); scanf("%d", &ntabuada);
+				printf("\n");
+				for (cont = 0; cont < 11; cont = cont + 1) printf("\n\t\t%d x %d = %d", ntabuada, cont, ntabuada * cont);
+ 				do
+	 			{
+					printf("\n\n\tDigite 1 se quiser fazer de novo\n\tDigite 0 se quiser encerrar o assunto: "); scanf("%d", &vezes);
+		 		} while (vezes != 1 && vezes != 0); 
+            }
+			opcao = 0;
+		}*/ 	// Modelo para englobar as opções 
 		do
 		{
 			printf("\n\n\tSe quiser voltar para o menu, digite 0;\n\tSe quiser fechar o programa. digite 1: "); scanf("%d", &menu);
