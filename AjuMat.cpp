@@ -17,7 +17,6 @@ int main()
 			if (vezes == 1)
 			{
 				printf("\n--------------------\n\n\t\t- Funcao de 1 grau -\n");
-				printf("\n\tA funcao de 1 grau tem:\n\n\t\t* 'a', acompanhado do 'x', sendo diferente de 0;\n\t\t* 'b'.\n");
 				do { printf("\n	Coloque o 'a': "); scanf("%f", &a); } while (a == 0);
 	 			printf("\n\n	Digite o 'b': "); scanf("%f", &b);
 	   			printf("\n\n	Numero depois da igualdade: "); scanf("%f", &igualdade);
@@ -40,7 +39,6 @@ int main()
 			if (vezes == 1)
 			{
 				printf("\n--------------------\n\n\t\t- Funcao de 2 grau -\n");
-				printf("\n\tA funcao de 2 tem:\n\n\t\t* 'a' acompanhado do 'x' e elevado a 2;\n\t\t* 'b', acompanhado de x;\n\t\t* 'c'.\n");
 				do { printf("\n	Coloque o 'a': "); scanf("%f", &a); } while (a == 0);
 	    		printf("\n\n	Digite o 'b': "); scanf("%f", &b);
 				printf("\n\n	Agora o 'c': "); scanf("%f", &c);
