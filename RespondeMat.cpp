@@ -5,20 +5,26 @@ int main()
 
 {
 	char menu = 's';
+
+	//RespondeMat
 	while (menu == 's')
 	{
 		int opcao, ntabuada, cont;
 		char vezes = 's';
 		float a, b, c, x1, x2, igualdade, delta;
-		printf("\n--------------------\n\n\t\t- Ajudante matematico -\n");
-		printf("\n	Qual assunto serah abordado?");
-		printf("\n\n\t\t1. Funcao de 1 grau;\n\t\t2. Funcao de 2 grau;\n\t\t3. Tabuadas;\n\n\tSua escolha: ");
-		scanf("%d", &opcao);
+		printf("\n\n\t\t--- Ajudante matematico ---\n\n\tQual assunto sera abordado?");
+		printf("\n\n\t\t1. Funcao de 1 grau;\n\t\t2. Funcao de 2 grau;\n\t\t3. Tabuadas;\n\t\t4. Operacoes com circulo.\n\n");
+		do {
+			printf("\tSua escolha: ");
+			scanf("%d", &opcao);
+		} while(opcao < 1 || opcao > 4);
+
+		//1. Função de 1ºgrau
 		if (opcao == 1)
 		{
+			printf("\n\n\t\t\t----- Funcao de 1 grau -----\n\n");
 			while (vezes == 's')
-			{
-				printf("\n\n\t\t\t----- Funcao de 1 grau -----\n\n");
+			{	
 				do
 				{
 					printf("\n	'a': ");
@@ -28,13 +34,13 @@ int main()
 				scanf("%f", &b);
 				printf("	valor da igualdade: ");
 				scanf("%f", &igualdade);
-				printf("\n\n		%.2fx + %.2f = %.2f", a, b, igualdade);
+				printf("\n		%.2fx + %.2f = %.2f", a, b, igualdade);
 				printf("\n		%.2fx = %.2f - %.2f", a, igualdade, b);
 				b = b * (-1) + igualdade;
 				printf("\n		%.2fx = %.2f", a, b);
 				x1 = b / a;
 				printf("\n\t\tx = %.2f / %.2f", b, a);
-				printf("\n\n\t\tx = %.2f\n\n", x1);
+				printf("\n\n\t\tx = %.2f\n", x1);
 				do
 				{
 					printf("\n\tQuer fazer novamente? (s/n): ");
@@ -42,14 +48,16 @@ int main()
 				} while (vezes != 's' && vezes != 'n');
 			}
 		}
+
+		//2. Função de 2º grau (arrumar igualdade)
 		else if (opcao == 2)
 		{
+			printf("\n\n\t\t\t--- Funcao de 2 grau ---\n\n");
 			while (vezes == 's')
 			{
-				printf("\n\n\t\t\t----- Funcao de 2 grau -----\n\n");
 				do
 				{
-					printf("\n	'a': ");
+					printf("\t'a': ");
 					scanf("%f", &a);
 				} while (a == 0);
 				printf("\t'b': ");
@@ -85,17 +93,18 @@ int main()
 				}
 			}
 		}
+
+		//3. Tabuadas
 		else if (opcao == 3)
 		{
+			printf("\n\n\t\t--- Gerador de tabuada ---\n");
 			while (vezes == 's')
 			{
-				printf("\n--------------------\n\n\t\t- Gerador de tabuada -\n");
 				printf("\n\tQual tabuada vc quer? ");
 				scanf("%d", &ntabuada);
-				printf("\n");
 				for (cont = 0; cont < 11; cont = cont + 1)
 					printf("\n\t\t%d x %d = %d", ntabuada, cont, ntabuada * cont);
-				printf("\n\n");
+				printf("\n");
 				do
 				{
 					printf("\n\tQuer fazer novamente? (s/n): ");
@@ -103,6 +112,25 @@ int main()
 				} while (vezes != 's' && vezes != 'n');
 			}
 		}
+
+		//4. Operações com círculos
+		else if (opcao == 4)
+		{
+			while (vezes == 's')
+			{
+				printf("\n--------------------\n\n\t\t- Operacoes com circulo -\n");
+				printf("\n\tQual será o assunto abordado?");
+				do
+				{
+					printf("\n\n\n\tQuer fazer novamente? (s/n): ");
+					scanf(" %c", &vezes);
+				}
+				while (vezes != 's' && vezes != 'n')
+					;
+			}
+		}
+
+		// Modelo para englobar as opções
 		/*		else if (opcao == x)
 		{
 			while (vezes == 's')
@@ -112,12 +140,15 @@ int main()
 			}
 
 		}*/
-		// Modelo para englobar as opções
+
+		//Volta para o menu/Encerra programa
 		do
 		{
 			printf("\n	Deseja retornar ao menu? (s/n): ");
 			scanf(" %c", &menu);
 		} while (menu != 's' && menu != 'n');
 	}
-	printf("\n--------------------\n\n\tMuito obrigado por usar a minha ferramenta! Aceito sugestoes para melhoria!\n\n--------------------");
+
+	//Fim do respondeMat
+	printf("\n--------------------\n\n\tMuito obrigado por usar a minha ferramenta! Aceito sugestoes :)\n\n--------------------");
 }
