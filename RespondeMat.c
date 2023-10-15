@@ -1,45 +1,90 @@
 #include <stdio.h>
 #include <math.h>
 
-int main()
+float a, b, c, x1, x2, igualdade, delta, resposta;
 
+float equacao1grau()
+{
+	do
+	{
+		printf("\n	'a': ");
+		scanf("%f", &a);
+	} while (a == 0);
+
+	printf("	'b': ");
+	scanf("%f", &b);
+	printf("	valor da igualdade: ");
+	scanf("%f", &igualdade);
+	printf("\n		%.2fx + %.2f = %.2f", a, b, igualdade);
+	printf("\n		%.2fx = %.2f - %.2f", a, igualdade, b);
+	b = b * (-1) + igualdade;
+	printf("\n		%.2fx = %.2f", a, b);
+	x1 = b / a;
+	printf("\n\t\tx = %.2f / %.2f", b, a);
+
+	return x1;
+}
+
+float equacao2grau()
+{
+	do
+	{
+		printf("\n\t'a': ");
+		scanf("%f", &a);
+	} while (a == 0);
+	printf("\t'b': ");
+	scanf("%f", &b);
+	printf("\t'c': ");
+	scanf("%f", &c);
+	printf("\tvalor da igualdade: ");
+	scanf("%f", &igualdade);
+	printf("\n\n\t	d = %.2f ^ 2 - 4 * %.2f * %.2f\n\t	d = %.2f - %.2f", b, a, c, b * b, 4 * a * c);
+	delta = b * b - 4 * a * c;
+	printf("\n\t	d = %.2f", delta);
+	if (delta < 0)
+		printf("\n\n\t	delta = %.2f, sem raizes reais.\n\n", delta);
+	else if (delta == 0)
+		printf("\n\n	x = %.2f\n\n", (-b) / (2 * a));
+	else
+	{
+		printf("\n\n\t	Raiz de %.2f = %.2f", delta, sqrt(delta));
+		delta = sqrt(delta);
+		printf("\n\n\t\tx1 = -%.2f + %.2f / 2 * %.2f", b, delta, a);
+		printf("\n\t\tx1 = -%.2f / %.2f", -b + delta, 2 * a);
+		x1 = ((-b) + delta) / (2 * a);
+		printf("\n\n\t\tx2 = -%.2f - %.2f / 2 * %.2f", b, delta, a);
+		printf("\n\t\tx2 = %.2f / %.2f", -b - delta, 2 * a);
+		x2 = ((-b) - delta) / (2 * a);
+	}
+	return x1, x2;
+}
+
+int main()
 {
 	char menu = 's';
 
-	//RespondeMat
+	// RespondeMat
 	while (menu == 's')
 	{
 		int opcao, ntabuada, cont;
 		char vezes = 's';
-		float a, b, c, x1, x2, igualdade, delta;
+
 		printf("\n\n\t\t--- Ajudante matematico ---\n\n\tQual assunto sera abordado?");
 		printf("\n\n\t\t1. Funcao de 1 grau;\n\t\t2. Funcao de 2 grau;\n\t\t3. Tabuadas;\n\t\t4. Operacoes com circulo.\n\n");
-		do {
+		do
+		{
 			printf("\tSua escolha: ");
 			scanf("%d", &opcao);
-		} while(opcao < 1 || opcao > 4);
+		} while (opcao < 1 || opcao > 4);
 
-		//1. Função de 1ºgrau
+		// 1. Função de 1ºgrau
 		if (opcao == 1)
 		{
 			printf("\n\n\t\t\t----- Funcao de 1 grau -----\n\n");
 			while (vezes == 's')
-			{	
-				do
-				{
-					printf("\n	'a': ");
-					scanf("%f", &a);
-				} while (a == 0);
-				printf("	'b': ");
-				scanf("%f", &b);
-				printf("	valor da igualdade: ");
-				scanf("%f", &igualdade);
-				printf("\n		%.2fx + %.2f = %.2f", a, b, igualdade);
-				printf("\n		%.2fx = %.2f - %.2f", a, igualdade, b);
-				b = b * (-1) + igualdade;
-				printf("\n		%.2fx = %.2f", a, b);
-				x1 = b / a;
-				printf("\n\t\tx = %.2f / %.2f", b, a);
+
+			{
+				x1 = equacao1grau();
 				printf("\n\n\t\tx = %.2f\n", x1);
 				do
 				{
@@ -49,62 +94,18 @@ int main()
 			}
 		}
 
-		//2. Função de 2º grau (arrumar igualdade)
+		// 2. Função de 2º grau (arrumar igualdade)
 		else if (opcao == 2)
 		{
 			printf("\n\n\t\t\t--- Funcao de 2 grau ---\n\n");
 			while (vezes == 's')
 			{
-				do
-				{
-					printf("\t'a': ");
-					scanf("%f", &a);
-				} while (a == 0);
-				printf("\t'b': ");
-				scanf("%f", &b);
-				printf("\t'c': ");
-				scanf("%f", &c);
-				printf("\tvalor da igualdade: ");
-				scanf("%f", &igualdade);
-				printf("\n\n\t	d = %.2f ^ 2 - 4 * %.2f * %.2f\n\t	d = %.2f - %.2f", b, a, c, b * b, 4 * a * c);
-				delta = b * b - 4 * a * c;
-				printf("\n\t	d = %.2f", delta);
-				if (delta < 0)
-					printf("\n\n\t	delta = %.2f, sem raizes reais.\n\n", delta);
-				else if (delta == 0)
-					printf("\n\n	x = %.2f\n\n", (-b) / (2 * a));
-				else
-				{
-					printf("\n\n\t	Raiz de %.2f = %.2f", delta, sqrt(delta));
-					delta = sqrt(delta);
-					printf("\n\n\t\tx1 = -%.2f + %.2f / 2 * %.2f", b, delta, a);
-					printf("\n\t\tx1 = -%.2f / %.2f", -b + delta, 2 * a);
-					x1 = ((-b) + delta) / (2 * a);
-					printf("\n\n\t	x1 = %.2f", x1);
-					printf("\n\n\t\tx2 = -%.2f - %.2f / 2 * %.2f", b, delta, a);
-					printf("\n\t\tx2 = %.2f / %.2f", -b - delta, 2 * a);
-					x2 = ((-b) - delta) / (2 * a);
-					printf("\n\n\t	x2 = %.2f\n", x2);
-					do
-					{
-						printf("\n\tQuer fazer novamente? (s/n): ");
-						scanf(" %c", &vezes);
-					} while (vezes != 's' && vezes != 'n');
-				}
-			}
-		}
+				x1 = equacao2grau(x1);
+				x2 = equacao2grau(x2);
 
-		//3. Tabuadas
-		else if (opcao == 3)
-		{
-			printf("\n\n\t\t--- Gerador de tabuada ---\n");
-			while (vezes == 's')
-			{
-				printf("\n\tQual tabuada vc quer? ");
-				scanf("%d", &ntabuada);
-				for (cont = 0; cont < 11; cont = cont + 1)
-					printf("\n\t\t%d x %d = %d", ntabuada, cont, ntabuada * cont);
-				printf("\n");
+				printf("\n\n\t	x1 = %.2f", x1);
+				printf("\n\n\t	x2 = %.2f\n", x2);
+
 				do
 				{
 					printf("\n\tQuer fazer novamente? (s/n): ");
@@ -113,42 +114,59 @@ int main()
 			}
 		}
 
-		//4. Operações com círculos
-		else if (opcao == 4)
+	// 3. Tabuadas
+	else if (opcao == 3)
+	{
+		printf("\n\n\t\t--- Gerador de tabuada ---\n");
+		while (vezes == 's')
 		{
-			while (vezes == 's')
+			printf("\n\tQual tabuada vc quer? ");
+			scanf("%d", &ntabuada);
+			for (cont = 0; cont < 11; cont = cont + 1)
+				printf("\n\t\t%d x %d = %d", ntabuada, cont, ntabuada * cont);
+			printf("\n");
+			do
 			{
-				printf("\n--------------------\n\n\t\t- Operacoes com circulo -\n");
-				printf("\n\tQual será o assunto abordado?");
-				do
-				{
-					printf("\n\n\n\tQuer fazer novamente? (s/n): ");
-					scanf(" %c", &vezes);
-				}
-				while (vezes != 's' && vezes != 'n')
-					;
-			}
+				printf("\n\tQuer fazer novamente? (s/n): ");
+				scanf(" %c", &vezes);
+			} while (vezes != 's' && vezes != 'n');
 		}
-
-		// Modelo para englobar as opções
-		/*		else if (opcao == x)
-		{
-			while (vezes == 's')
-			{
-
-				do { printf("\n\n\n\tQuer fazer novamente? (s/n): "); scanf(" %c", &vezes); } while (vezes != 's' && vezes != 'n');
-			}
-
-		}*/
-
-		//Volta para o menu/Encerra programa
-		do
-		{
-			printf("\n	Deseja retornar ao menu? (s/n): ");
-			scanf(" %c", &menu);
-		} while (menu != 's' && menu != 'n');
 	}
 
-	//Fim do respondeMat
-	printf("\n--------------------\n\n\tMuito obrigado por usar a minha ferramenta! Aceito sugestoes :)\n\n--------------------");
+	// 4. Operações com círculos
+	else if (opcao == 4)
+	{
+		while (vezes == 's')
+		{
+			printf("\n--------------------\n\n\t\t- Operacoes com circulo -\n");
+			printf("\n\tQual será o assunto abordado?");
+			do
+			{
+				printf("\n\n\n\tQuer fazer novamente? (s/n): ");
+				scanf(" %c", &vezes);
+			} while (vezes != 's' && vezes != 'n');
+		}
+	}
+
+	// Modelo para englobar as opções
+	/*		else if (opcao == x)
+	{
+		while (vezes == 's')
+		{
+
+			do { printf("\n\n\n\tQuer fazer novamente? (s/n): "); scanf(" %c", &vezes); } while (vezes != 's' && vezes != 'n');
+		}
+
+	}*/
+
+	// Volta para o menu/Encerra programa
+	do
+	{
+		printf("\n	Deseja retornar ao menu? (s/n): ");
+		scanf(" %c", &menu);
+	} while (menu != 's' && menu != 'n');
+}
+
+// Fim do respondeMat
+printf("\n--------------------\n\n\tMuito obrigado por usar a minha ferramenta! Aceito sugestoes :)\n\n--------------------");
 }
