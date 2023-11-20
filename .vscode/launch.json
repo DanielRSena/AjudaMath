@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "ExerciMath",
+      "request": "launch",
+      "mainClass": "ExerciMath",
+      "projectName": "AjudaMath_8ce7bfbd"
+    },
+    {
+      "type": "java",
+      "name": "ExerciMat",
+      "request": "launch",
+      "mainClass": "ExerciMat",
+      "projectName": "AjudaMath_8ce7bfbd"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
