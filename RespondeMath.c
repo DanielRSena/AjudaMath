@@ -117,6 +117,37 @@ float equacao2grau()
 	return 0;
 }
 
+int sistemas(){
+	float nx1 = 0, aux = 0, nx2 = 0, ny1 = 0, aux2 = 0, ny2 = 0, n1 = 0, n2 = 0, x = 0, y = 0;
+
+	printf("\tPara a resposta ser calculada de forma correta, coloque apenas os valores numericos. Ex:\n\n\t\t2x + 3y = 2.5\n\t\t2x -4 = 6\n\n\tSequencia de valores a serem colocados: 2, 3, 2.5, 2, -4, 6\n\n\n");
+	printf("\tPrimeiro valor, da primeira funcao: "); scanf("%f", &nx1);
+	printf("\tSegundo valor, da primeira funcao: "); scanf("%f", &ny1);
+	printf("\tTerceiro valor, da primeira funcao: "); scanf("%f", &n1);
+	printf("\n\tPrimeiro valor da segunda funcao: "); scanf("%f", &nx2);
+	printf("\tSegundo valor da segunda funcao: "); scanf("%f", &ny2);
+	printf("\tTerceiro valor da segunda funcao: "); scanf("%f", &n2);
+
+	aux = ny1;
+	ny1 *= nx2;
+	aux2 = n1;
+	n1 *= nx2;
+
+	ny2 = ny2 * (-nx1);
+	n2 = n2 * (-nx1);
+
+	ny2 += ny1;
+	n2 += n1;
+
+	y = n2 / ny2;
+
+	x = (aux2 - (aux * y)) / nx1;
+
+	printf("\n\tx = %.2f\n\ty = %.2f\n\n", x, y);
+
+	return 0;
+}
+
 int main()
 {
 	char menu = 's';
@@ -128,12 +159,12 @@ int main()
 		char vezes = 's';
 
 		printf("\n\n-----\tRespondeMath\t-----\n\n\tQual o assunto da pergunta?");
-		printf("\n\n\t\t1. Agrupamento discreto\n\t\t2. Funcao de 1 grau\n\t\t3. Funcao de 2 grau\n\t\t4. Tabuadas.\n\n");
+		printf("\n\n\t\t1. Agrupamento discreto\n\t\t2. Funcao de 1 grau\n\t\t3. Funcao de 2 grau\n\t\t4. Sistemas Lineares\n\t\t5.Tabuadas.\n\n");
 		do
 		{
 			printf("\tSua escolha: ");
 			scanf("%d", &opcao);
-		} while (opcao < 1 || opcao > 4);
+		} while (opcao < 1 || opcao > 5);
 
 		// 1. Agrupamento discreto
 		if (opcao == 1)
@@ -141,7 +172,7 @@ int main()
 			printf("\n\n\t\t--- Agrupamento discreto ---\n");
 			while (vezes == 's')
 			{
-
+				printf("\n\n");
             	agDiscreto();
 				do { printf("\tQuer fazer novamente? (s/n): "); scanf(" %c", &vezes); } while (vezes != 's' && vezes != 'n');
 			}
@@ -154,8 +185,8 @@ int main()
 			while (vezes == 's')
 
 			{
+				printf("\n\n");
 				equacao1grau();
-
 				do
 				{
 					printf("\tQuer fazer novamente? (s/n): ");
@@ -167,9 +198,10 @@ int main()
 		// 3. Função de 2º grau
 		else if (opcao == 3)
 		{
-			printf("\n\n\t\t--- Funcao de 2 grau ---\n");
+			printf("\n\n\t\t--- Funcao de 2 grau ---");
 			while (vezes == 's')
 			{
+				printf("\n\n");
 				equacao2grau();
 				do{ 
 					printf("\tQuer fazer novamente? (s/n): "); scanf(" %c", &vezes);
@@ -177,15 +209,28 @@ int main()
 			}
 		}
 
-		// 4. Tabuadas
+		// 4. Sistemas lineares
 		else if (opcao == 4)
 		{
-			printf("\n\n\t\t--- Gerador de tabuada ---\n");
+			printf("\n\n\t\t--- Sistemas lineares ---");
 			while (vezes == 's')
 			{
-				printf("\n\tQual tabuada vc quer? ");
+				printf("\n\n");
+				sistemas();
+				do { printf("\tQuer fazer novamente? (s/n): "); scanf(" %c", &vezes); } while (vezes != 's' && vezes != 'n');
+			}
+
+		}
+
+		// 5. Tabuadas
+		else if (opcao == 5)
+		{
+			printf("\n\n\t\t--- Gerador de tabuada ---");
+			while (vezes == 's')
+			{
+				printf("\n\n\tQual tabuada vc quer? ");
 				scanf("%d", &ntabuada);
-				for (cont = 0; cont < 11; cont = cont + 1)
+				for (cont = 1; cont < 11; cont++)
 					printf("\n\t\t%d x %d = %d", ntabuada, cont, ntabuada * cont);
 				printf("\n\n");
 				do
@@ -196,20 +241,21 @@ int main()
 			}
 		}
 
+
 		// Modelo para englobar as opções
 		/*		else if (opcao == x)
 		{
-			printf("\n\n\t\t--- Funcao de 1 grau ---\n\n");
+			printf("\n\n\t\t--- Funcao de 1 grau ---");
 			while (vezes == 's')
 			{
-
+				printf("\n\n");
 				do { printf("\tQuer fazer novamente? (s/n): "); scanf(" %c", &vezes); } while (vezes != 's' && vezes != 'n');
 			}
 
 		}*/
 
 
-		// Volta para o menu ou ncerra programa
+		// Volta para o menu ou encerra programa
 		do
 		{
 			printf("\nDeseja retornar ao menu? (s/n): "); scanf(" %c", &menu);
