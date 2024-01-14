@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "ExerciMath",
+      "request": "launch",
+      "mainClass": "ExerciMath",
+      "projectName": "AjudaMath_8ce7bfbd"
+    },
+    {
+      "type": "java",
+      "name": "ExerciMat",
+      "request": "launch",
+      "mainClass": "ExerciMat",
+      "projectName": "AjudaMath_8ce7bfbd"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/danie/OneDrive/Profissional/Arquivos Github/Fórmulas matemáticas/output",
+      "program": "c:/Users/danie/OneDrive/Profissional/Arquivos Github/Fórmulas matemáticas/output/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
