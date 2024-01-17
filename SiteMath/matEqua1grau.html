@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equação 1 grau</title>
+    <link rel="shortcut icon" href="midia/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="midia/CSS/style.css">
+    <script src="midia/JS/programacao.js"></script>
+</head>
+
+<body onload="ola(), navega(), fimPagina()">
+
+    <div id="navegador"></div> <!--barra do menu-->
+    <div class="conteudo">
+        <br>
+        <div id="fim"></div> <br><br>
+        <h1>Função de 1º grau</h1><br><br>
+
+        <h2>Antes de tudo, o que é uma função?</h2>
+        Primeiramente, considere que <strong>a</strong> e <strong>b</strong> conjuntos não vazios. A função é uma regra
+        matemática que relaciona cada elememento 'x' de <strong>a</strong> para <strong>um elemento 'y' no conjunto
+            b</strong>.
+
+        <br><br>Uma dessas funções é a de 1º grau, representada por: <br><br>
+
+        <code><strong>y = ax + b </strong></code> <br> <br>
+
+        <strong>a</strong> = coeficiente angular <br>
+        <strong>b</strong> = coeficiente linear <br><br>
+
+        Nela, A e B são números reais, sendo A diferente de 0. Vale
+        resaltar também que o X da função tem seu expoente = 1. Logo, <code><strong>ax<sup>2</sup> + b</strong></code>
+        não é uma
+        função de 1º grau, por exemplo.
+
+        <br><br>A partir dessa configuração, podemos fazer algumas operações. Dentre
+        elas, temos:
+
+        <ol><br><br>
+            <li>Resolver problemas matemáticos</li> <br>
+            <li>Contruir e esboçar gráficos</li> <br>
+        </ol>
+
+        <br>Ambas serão tratadas de forma separada ao decorrer desse material, e começaremos com: <br><br>
+
+        <h2>Gráficos</h2>
+        Antes de começar, é interessante acrescentar mais algumas informações:
+        <ul> <br>
+            <li>Temos duas formas de representar a reta da função de 1ºgrau em um gráfico: pelo seu esboço e por sua
+                contrução.</li> <br>
+            <li>Se 'a' > 0, a reta representada no gráfico será crescente;</li> <br>
+            <li>Se 'a' < 0, a reta representada no gráfico será decrescente;</li><br>
+            <li>O valor 'b' é o exato ponto que a reta cruzará o eixo 'y' quando x = 0;</li><br>
+
+        </ul>
+        <br><strong>Ex:</strong> Tendo como base a relação <code><strong>y = 2x + 5</strong></code>,
+        vamos: <br><br>
+
+
+        <h3>Esboçar o gráfico</h3>
+        <ol>
+            <strong>
+                <li>Descubra o valor da intersecção do eixo 'y'</li>
+            </strong><br>
+            O valor é, justamente, o 'b'. Nesse caso em específico, a
+            intersecção se dá quando x = 0 e y = 5<br><br>
+            <strong>
+                <br>
+                <li>Descubra o valor da intersecção do eixo 'x'</li>
+            </strong><br>
+            Para isso iremos zerar o 'y' e resolver a função, da seguinte forma: <br><br>
+            <code>y = 2x + 5 <br> 0 = 2x + 5 <br> -5 = 2x <br> (-5) / 2 = x <br> -2,5 = x</code>
+
+            <br><br>
+        </ol>
+        Como no esboço do gráfico não é necessário ter proporção de valores, pode-se apenas traçar a reta, se atentando
+        claro, a situação do gráfico (crescente ou decrescente) e aos valores das intesecções. Nesse caso, temos algo
+        parecido com a imagem abaixo:<br><br><br>
+        <img src="midia/imagens/conteudos/esbocoGrafico1Grau.png" alt="gráfico de reta da função de 1º grau">
+        <br><br>Pode-se perceber que ao analisar a função inicial, sabemos que o gráfico é crescente (seu 'a' é
+        positivo),
+        quando x = 0, y = 5 (valor 'b') e ao zerar o 'y' e resolvermos a função, tomamos nota de que quando y = 0, x =
+        -2,5.
+        <br><br>
+
+
+        <h3>Construir o gráfico</h3> <br>
+        <ol>
+            <strong>
+                <li>Crie uma tabela de valores de 'x'</li>
+            </strong><br>
+
+            Aqui é um pouco mais trabalhoso. teremos que escolher alguns valores de 'x' (geralmente 3 ou 5), de
+            preferencia pequenos, para substiuir na relação e encontrar seus respesctivos valores em 'y'. Ex: <br><br>
+            <table>
+                <tr>
+                    <td>Valor de x</td>
+                    <td>Função</td>
+                    <td>Valor de y</td>
+                    <td>Par ordenado</td>
+                </tr>
+                <tr>
+                    <td>-2</td>
+                    <td>y = 2 . (-2) + 5 <br> y = -4 + 5</td>
+                    <td>1</td>
+                    <td>(-2, 1)</td>
+                </tr>
+                <tr>
+                    <td>-1</td>
+                    <td>y = 2 . (-1) + 5 <br> y = -2 + 5</td>
+                    <td>3</td>
+                    <td>(-1, 3)</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>y = 2 . 0 + 5 <br> y = 0 + 5</td>
+                    <td>5</td>
+                    <td>(0, 5)</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>y = 2 . 1 + 5 <br> y = 2 + 5</td>
+                    <td>7</td>
+                    <td>(1, 7)</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>y = 2 . 2 + 5 <br> y = 4 + 5</td>
+                    <td>9</td>
+                    <td>(2, 9)</td>
+                </tr>
+            </table>
+            </ul>
+
+            <br><br> Quer usar a ferramenta que resolve essas equações? Vá para o solucionador de <a href="ferEqua1grau.html">equações de 1ºgrau</a>
+
+    </div>
+
+    <br><br>
+
+    <div id="rodapeh"></div>
+
+</body>
+
+</html>
