@@ -1,4 +1,4 @@
-# AjudaMath - RespondeMath e ExerciMath
+# AjudaMath - RespondeMath e ExerciMath 
 Bem vindo ao AjudaMath! A ideia é fazer uma série de plataformas para auxiliar nas mais diversas áreas de matemática, desde algebra até tabuada por exemplo. Seja para fazer exercícios ou responder questões, o intuito é tornar mais fácil essas tarefas. Para tal, tem-se alguns executáveis: 
 
 1. **RespondeMath:** Responde algumas questões relacionadas à área escolhida pelo usuário.
