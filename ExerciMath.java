@@ -1,7 +1,8 @@
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import objExerciMath.*;
+
+import objsExerciMath.*;
 
 class ExerciMath {
 
@@ -24,6 +25,8 @@ class ExerciMath {
 
         char repetir = 's';
 
+        entrada.nextLine();
+
         do {
             System.out.print("\n\tQuer fazer novamente? (s/n): ");
             repetir = util.stringToChar(entrada.nextLine());
@@ -44,21 +47,21 @@ class ExerciMath {
 
         //armazena e printa os valores
         for (int i = 0; i < nAmostras; i++) {
-            amostras[i] = Nums.arredonda(Nums.doubleRandom(50));
+            amostras[i] = Nums.arredonda(Nums.doubleRandom(50)); //sorteia um número aleatório entre 0 e 50 e o arredonda
             System.out.print("\t" + amostras[i] + "\t");
-            auxAmostras[i] = amostras[i];
-            frequencias[i] = Nums.intRandom(50);
+            auxAmostras[i] = amostras[i]; //esse vetor auxiliar serve para ajudar na conta da média, sem comprometer as outras
+            frequencias[i] = Nums.intRandom(50); //sorteia um número aleatório entre 0 e 50 e o arredonda
             System.out.println(frequencias[i]);
         }
 
         // média
         for (int i = 0; i < nAmostras; i++) {
-            auxAmostras[i] *= frequencias[i]; // multiplica as amostras pela frequência
-            media += auxAmostras[i]; // toda essa multiplicação é acumulada
+            auxAmostras[i] *= frequencias[i]; // multiplica as amostras pela sua respectiva frequência
+            media += auxAmostras[i]; // o produto disto é acumulado
             tFreq += frequencias[i]; // todas as frequências são acumuladas
         }
 
-        media = Nums.arredonda(media / tFreq);
+        media = Nums.arredonda(media / tFreq); //faz a média e a arredonda
 
         // variancia
         for (int i = 0; i < nAmostras; i++) {
@@ -69,7 +72,7 @@ class ExerciMath {
         
         desvioPadrao = Nums.arredonda(Math.sqrt(s2)); // desvio padrao
     
-        CV = ((100 * desvioPadrao) / media) * 100; // coeficiente de variacao
+        CV = ((100 * desvioPadrao) / media); // coeficiente de variacao
         CV = Nums.arredonda(CV);
 
         //respotas
@@ -149,12 +152,12 @@ class ExerciMath {
 
     static int equa2() {
 
-        double a, b, c, respostaDelta, delta, x1, respostaX1, x2, respostaX2;
-
+        double respostaDelta, delta, x1, respostaX1, x2, respostaX2;
+        int a, b, c;
         // equilibrada nos valores
-        a = Nums.doubleRandom(10);
-        b = Nums.doubleRandom(15);
-        c = Nums.doubleRandom(10);
+        a = Nums.intRandom(10);
+        b = Nums.intRandom(15);
+        c = Nums.intRandom(10);
 
         // delta
         delta = (b * b) - (4 * a * c);
@@ -173,9 +176,9 @@ class ExerciMath {
             entrada.next();
         }
 
-        delta = Nums.arredonda(Math.sqrt(delta));
-
         if (delta > 0) {
+
+            delta = Nums.arredonda(Math.sqrt(delta));
 
             x1 = ((b * (-1)) + delta) / (2 * a);
             x1 = Nums.arredonda(x1);

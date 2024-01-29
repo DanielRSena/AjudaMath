@@ -1,4 +1,4 @@
-package objExerciMath;
+package objsExerciMath;
 
 public class util {
     

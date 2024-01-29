@@ -1,4 +1,4 @@
-package objExerciMath;
+package objsExerciMath;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
