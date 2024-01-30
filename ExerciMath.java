@@ -1,4 +1,5 @@
 
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,20 +20,6 @@ class ExerciMath {
     static String erro() {
         pontos -= 1;
         return ", -1 ponto. Seu saldo total de pontos é " + pontos + "\n";
-    }
-
-    static char repetirExercicio() {
-
-        char repetir = 's';
-
-        entrada.nextLine();
-
-        do {
-            System.out.print("\n\tQuer fazer novamente? (s/n): ");
-            repetir = util.stringToChar(entrada.nextLine());
-        } while (repetir != 's' && repetir != 'n');
-
-        return repetir;
     }
 
     // 2. Exercícios
@@ -212,6 +199,76 @@ class ExerciMath {
         return 0;
     }
 
+    static int matrizes(){
+
+        String tema[] = {"adição", "subtração", "multiplição por escalar", "matriz transposta"};
+        int resposta, pontosGanhos = 0, 
+            mat1[][] = Nums.criarMatriz(),
+                sorteio = Nums.intRandom(4);
+                
+        System.out.println("\n\nE o estilo sorteado foi ... " + tema[sorteio - 1]);
+        Nums.printaMatriz(mat1);
+        
+        if(sorteio < 4) { //qualquer um que não seja transposta
+
+            if (sorteio < 3) { //soma ou subtração
+
+                int mat2[][] = Nums.criarMatriz(mat1.length, mat1[0].length);  //cria outra matriz aleatória, mas com mesmo tamanho da primeira
+                System.out.println("\n\n\tSegunda matriz");
+                Nums.printaMatriz(mat2);
+                if (sorteio == 1) mat1 = Contas.somarMatriz(mat1, mat2); //se é adição, soma as matrizes
+                else mat1 = Contas.subtrairMatriz(mat1, mat2); //se é subtração, faz a diferença das matrizes
+            }
+            else { //multiplicação por escalar
+
+                int escalar = Nums.intRandom(10); // o escalar será será um número entre 1 e 10
+                mat1 = Contas.multEscalarMatriz(mat1, escalar);
+                System.out.println("\n\n\tO escalar é " + escalar + "\n");
+            }
+    
+            for (int i = 0; i < mat1.length; i++) { //passa por todas as linhas da matriz
+                System.out.println();
+                for (int j = 0; j < mat1[0].length; j++) { //passa por todas as colunas das linhas da matriz
+                    try {
+    
+                        System.out.print("\tValor do endereço [" + (i+1) + "][" + (j+1) + "]: "); resposta = entrada.nextInt();
+                        if (mat1[i][j] == resposta){ acerto(); pontosGanhos ++; }
+                        else erro();
+    
+                    } catch (InputMismatchException e) { entrada.next(); erro(); }
+                }
+            }
+
+            System.out.println("\nSegue o gabarito:");
+            Nums.printaMatriz(mat1);
+            System.out.println("\nO total de pontos ganhos foram " + pontosGanhos + ". Agora está com " + pontos + " pontos.\n");
+
+        }
+        else { //matriz transposta
+            int mat2[][] = new int[mat1[0].length][mat1.length]; 
+            for (int i = 0; i < mat2.length; i++) {
+                System.out.println();
+                for (int j = 0; j < mat2[0].length; j++) {
+
+                    mat2[i][j] = mat1[j][i]; //como é transposta, as linhas viram colunas e as colunas viram linhas
+                    try {
+    
+                        System.out.print("\tValor do endereço [" + (i+1) + "][" + (j+1) + "]: "); resposta = entrada.nextInt();
+                        if (mat2[i][j] == resposta){ acerto(); pontosGanhos ++; }
+                        else erro();
+        
+                    } catch (InputMismatchException e) { entrada.next(); erro(); }
+                }
+            }
+
+            System.out.println("\nSegue o gabarito:");
+            Nums.printaMatriz(mat2);
+            System.out.println("\nO total de pontos ganhos foram " + pontosGanhos + ". Agora está com " + pontos + " pontos.\n");
+        }
+
+        return 0;
+    }
+
     static int sisLinear() {
 
         double aux = 0, aux2 = 0, x = 0, y = 0, respostaX = 0, respostaY = 0;
@@ -309,26 +366,28 @@ class ExerciMath {
             int opcao = 0;
 
             // Home
-            try {
-                System.out.println( "\n\n\t\t--- ExerciMath --- \n\nBem vindo à central de exercícios do AJudaMath! Escolha o assunto que deseja fazer exercícios: \n\n1. Agrupamento Discreto\n2. Função de 1º grau\n3. Função de 2º grau\n4. Sistema linear\n5. Tabuada\n");
-
-                do {
-                    System.out.print("\tSua escolha: "); opcao = entrada.nextInt();
-                } while (opcao < 1 || opcao > 5);
-            } catch (InputMismatchException e) { entrada.next(); } //limpa o buffer do Scanner se for letras ou símbolos
+            System.out.println( "\n\n\t\t--- ExerciMath --- \n\nBem vindo à central de exercícios do AJudaMath! Escolha o assunto que deseja fazer exercícios: \n\n1. Agrupamento Discreto\n2. Função de 1º grau\n3. Função de 2º grau\n4. Matrizes\n5. Sistema linear\n6. Tabuada\n");
+            while (true) { //não sairá daqui até colocar uma opção válida
+                try {
+                    do {
+                        System.out.print("\tSua escolha: "); opcao = entrada.nextInt();
+                    } while (opcao < 1 || opcao > 6);
+                    break;
+                } catch (InputMismatchException e) { entrada.nextLine(); } //limpa o buffer do Scanner se for letras ou símbolos
+            }
 
 
             // 1. Agrupamento Discreto
             if (opcao == 1) {
 
                 // texto inicial
-                System.out.println( "\n\n\t\t--- Função de 1º grau ---\n\nSaluton, e muito bem vindo! Encontre o valor de 'x' para ganhar 2 pontos!\nMas cuidado! Se errar, perde 1 ponto.");
+                System.out.println( "\n\n\t\t--- Agrupamento discreto ---\n\nSaluton, e muito bem vindo! Encontre a média, variância, desvio padrão e coeficiente de variação para ganhar 4 pontos!\nMas cuidado! Se errar, perde 1 ponto.");
 
                 // Repetição
                 while (repetir == 's') {
 
-                    agDiscreto(); // chamada da função de 1º grau
-                    repetir = repetirExercicio(); // Escolha de repetição
+                    agDiscreto(); // chamada da função de agrupamento discreto
+                    repetir = Util.repetirProcesso(); // Escolha de repetição
                 }
             }
 
@@ -342,7 +401,7 @@ class ExerciMath {
                 while (repetir == 's') {
 
                     equa1(); // chamada da função de 1º grau
-                    repetir = repetirExercicio(); // Escolha de repetição
+                    repetir = Util.repetirProcesso(); // Escolha de repetição
                 }
             }
 
@@ -350,53 +409,65 @@ class ExerciMath {
             if (opcao == 3) {
 
                 // Texto inicial
-                System.out.println( "\n\n\t\t--- Função de 2º grau ---\n\nSaluton, e muito bem vindo! Encontre o valor de 'x1' e  'x2' para ganhar 3 pontos!\nMas cuidado! Se errar, perde 1 ponto.");
+                System.out.println( "\n\n\t\t--- Função de 2º grau ---\n\nSaluton, e muito bem vindo! Encontre o valor do delta, 'x1' e  'x2' para ganhar 3 pontos!\nMas cuidado! Se errar, perde 1 ponto.");
 
                 // Repetição
                 while (repetir == 's') {
 
                     equa2(); // chamada da função de 2º grau
-                    repetir = repetirExercicio(); // Escolha de repetição
+                    repetir = Util.repetirProcesso(); // Escolha de repetição
                 }
             }
 
-            // 4. Sistemas Lineares
+            // 4. Matrizes
             if (opcao == 4) {
 
                 // Texto inicial
-                System.out.println("\n\n\t\t--- Sistema Linear ---\n\nSaluton, e muito bem vindo! Encontre o valor de 'x' e  'y' para ganhar 3 pontos!\nMas cuidado! Se errar, perde 1 ponto.\n");
+                System.out.println("\n\n\t\t--- Matrizes ---\n\nSaluton, e muito bem vindo! faça as operações com as matrizes para ganhar pontos!\nMas cuidado! Se errar, perde 1 ponto.");
+
+                // Repetição
+                while (repetir == 's') {
+
+                    matrizes(); // chamada da função de matrizes
+                    repetir = Util.repetirProcesso(); // Escolha de repetição
+
+                }
+            }
+
+            // 5. Sistemas Lineares
+            if (opcao == 5) {
+
+                // Texto inicial
+                System.out.println("\n\n\t\t--- Sistema Linear ---\n\nSaluton, e muito bem vindo! Encontre o valor de 'x' e  'y' para ganhar 2 pontos!\nMas cuidado! Se errar, perde 1 ponto.\n");
 
                 // Repetição
                 while (repetir == 's') {
 
                     sisLinear(); // chamada da função de 2º grau
-                    repetir = repetirExercicio(); // Escolha de repetição
+                    repetir = Util.repetirProcesso(); // Escolha de repetição
 
                 }
             }
 
-            // 5. Tabuada
-            if (opcao == 5) {
+            // 6. Tabuada
+            if (opcao == 6) {
 
                 // texto inicial
-                System.out.println( "\n\n\t\t--- Tabuada ---\n\nSaluton, e muito bem vindo! Coloque a resposta certa para ganhar um ponto!\nMas cuidado! Se errar, perde um ponto.");
+                System.out.println( "\n\n\t\t--- Tabuada contra o tempo ---\n\nSaluton, e muito bem vindo! Coloque a resposta certa para ganhar um ponto!\nMas cuidado! Se errar, perde um ponto.");
 
                 // Repetição
                 while (repetir == 's') {
 
                     tabuada();
-                    repetir = repetirExercicio(); // Escolha de repetição
+                    repetir = Util.repetirProcesso(); // Escolha de repetição
                 }
             }
 
-            do {
-                System.out.print("\n\nVocê quer voltar ao menu? (s/n): ");
-                menu = util.stringToChar(entrada.nextLine());
-            } while (menu != 's' && menu != 'n');
+            menu = Util.repetirProcesso("\n\nVocê quer voltar ao menu? (s/n): ");
 
-            System.out.println("\n\nObrigado por usar o ExerciMath! Aceito sugestões :)\n\n");
         }
 
+        System.out.println("\n\nObrigado por usar o ExerciMath! Aceito sugestões :)\n\n");
         entrada.close();
     }
 }

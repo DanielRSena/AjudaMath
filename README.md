@@ -1,4 +1,4 @@
- <img src="/bannerAjudaMath.png"> 
+ <img src="/SiteMath/midia/imagens/bannerAjudaMath.png"> 
 
  # Bem vindo!!
 

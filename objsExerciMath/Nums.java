@@ -7,7 +7,6 @@ import java.util.Random;
 public class Nums {
 
     static Random random = new Random();
-    int until = 0;
     
     public static double arredonda(double num){
 
@@ -24,11 +23,48 @@ public class Nums {
         return num;
     }
 
-    public static double doubleRandom(int until){
+    public static double doubleRandom(double until){
 
         double num;
         if (until <= 0) num = random.nextDouble(10) + 1; //se não colocar o intervalo, será de 1 até 10
         else num = random.nextDouble(until) + 1; //se colocar, será do 1 até o número especificado
         return num;
+    }
+
+    public static int[][] criarMatriz(){ //esse método cria matrizes aleatórias, com tamanho aleatório
+
+        int linhas = Nums.intRandom(5),
+            colunas = Nums.intRandom(5),
+                matriz[][] = new int[linhas][colunas];
+
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                matriz[i][j] = Nums.intRandom(30);
+            }
+        }
+        return matriz;
+    } 
+
+    public static int[][] criarMatriz(int linha, int coluna){ //cria matriz com valores aleatórios, mas com tamanho já setado
+
+        int matriz[][] = new int[linha][coluna];
+
+        for (int i = 0; i < linha; i++) {
+            for (int j = 0; j < coluna; j++) {
+                matriz[i][j] = Nums.intRandom(30);
+            }
+        }
+        return matriz;
+    } 
+
+    public static void printaMatriz(int matriz[][]){
+
+        for (int i = 0; i < matriz.length; i++) {
+            System.out.println();
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print("\t" + matriz[i][j]);
+            }
+        }
+        System.out.println();
     }
 }
