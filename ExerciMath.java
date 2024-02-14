@@ -36,8 +36,8 @@ class ExerciMath {
         for (int i = 0; i < nAmostras; i++) {
             amostras[i] = Nums.arredonda(Nums.doubleRandom(50)); //sorteia um número aleatório entre 0 e 50 e o arredonda
             System.out.print("\t" + amostras[i] + "\t");
-            auxAmostras[i] = amostras[i]; //esse vetor auxiliar serve para ajudar na conta da média, sem comprometer as outras
-            frequencias[i] = Nums.intRandom(50); //sorteia um número aleatório entre 0 e 50 e o arredonda
+            auxAmostras[i] = amostras[i]; //ajuda na conta da média, sem comprometer as outras
+            frequencias[i] = Nums.intRandom(50); //sorteia um inteiro entre 0 e 50
             System.out.println(frequencias[i]);
         }
 
@@ -196,6 +196,7 @@ class ExerciMath {
             }
 
         }
+        
         return 0;
     }
 
@@ -213,7 +214,7 @@ class ExerciMath {
 
             if (sorteio < 3) { //soma ou subtração
 
-                int mat2[][] = Nums.criarMatriz(mat1.length, mat1[0].length);  //cria outra matriz aleatória, mas com mesmo tamanho da primeira
+                int mat2[][] = Nums.criarMatriz(mat1.length, mat1[0].length);  //cria outra matriz aleatória, mesmo tamanho da primeira
                 System.out.println("\n\n\tSegunda matriz");
                 Nums.printaMatriz(mat2);
                 if (sorteio == 1) mat1 = Contas.somarMatriz(mat1, mat2); //se é adição, soma as matrizes
@@ -245,6 +246,7 @@ class ExerciMath {
 
         }
         else { //matriz transposta
+
             int mat2[][] = new int[mat1[0].length][mat1.length]; 
             for (int i = 0; i < mat2.length; i++) {
                 System.out.println();
@@ -351,8 +353,8 @@ class ExerciMath {
         }
 
         System.out.println("\nAcabou o tempo! Você está com " + pontos + " pontos!\n");
-        return 0;
 
+        return 0;
     }
 
     // 3. Programa ExerciMath
@@ -366,7 +368,7 @@ class ExerciMath {
             int opcao = 0;
 
             // Home
-            System.out.println( "\n\n\t\t--- ExerciMath --- \n\nBem vindo à central de exercícios do AJudaMath! Escolha o assunto que deseja fazer exercícios: \n\n1. Agrupamento Discreto\n2. Função de 1º grau\n3. Função de 2º grau\n4. Matrizes\n5. Sistema linear\n6. Tabuada\n");
+            System.out.println( "\n\n\t\t--- ExerciMath --- \n\nBem vindo à central de exercícios do AjudaMath! Escolha o assunto que deseja fazer exercícios: \n\n1. Agrupamento Discreto\n2. Função de 1º grau\n3. Função de 2º grau\n4. Matrizes\n5. Sistema linear\n6. Tabuada\n");
             while (true) { //não sairá daqui até colocar uma opção válida
                 try {
                     do {
@@ -375,7 +377,6 @@ class ExerciMath {
                     break;
                 } catch (InputMismatchException e) { entrada.nextLine(); } //limpa o buffer do Scanner se for letras ou símbolos
             }
-
 
             // 1. Agrupamento Discreto
             if (opcao == 1) {
@@ -464,7 +465,6 @@ class ExerciMath {
             }
 
             menu = Util.repetirProcesso("\n\nVocê quer voltar ao menu? (s/n): ");
-
         }
 
         System.out.println("\n\nObrigado por usar o ExerciMath! Aceito sugestões :)\n\n");
