@@ -12,6 +12,10 @@ class ExerciMath {
 
     // 1. Funções gerais
 
+    static String titulo[] = {"Agrupamento discreto", "Função de 1º grau" , "Função de 2º grau", "Matrizes", "Sistema Linear", "Tabuada contra o tempo"};
+
+    static String descricao[] = {"Encontre a média, variância, desvio padrão e coeficiente de variação para ganhar 4 pontos!", "Encontre o valor de x para ganhar 1 ponto!", "Encontre o valor do delta, 'x1' e  'x2' para ganhar 3 pontos!", "Faça as operações com as matrizes para ganhar pontos!", "Encontre o valor de 'x' e  'y' para ganhar 2 pontos!", "Coloque a resposta certa para ganhar um ponto!"};
+
     static String acerto() {
         pontos += 1;
         return "\nParabéns! Está com " + pontos + " pontos!\n";
@@ -23,7 +27,6 @@ class ExerciMath {
     }
 
     // 2. Exercícios
-
     static int agDiscreto() {
 
         int nAmostras = 5, frequencias[] = new int[nAmostras];
@@ -32,8 +35,9 @@ class ExerciMath {
 
         System.out.println("Lembre-se de ordenar as amostras antes de calcular!\n\n\txi\t f");
 
-        //armazena e printa os valores
+        //  armazena e printa os valores
         for (int i = 0; i < nAmostras; i++) {
+
             amostras[i] = Nums.arredonda(Nums.doubleRandom(50)); //sorteia um número aleatório entre 0 e 50 e o arredonda
             System.out.print("\t" + amostras[i] + "\t");
             auxAmostras[i] = amostras[i]; //ajuda na conta da média, sem comprometer as outras
@@ -62,55 +66,27 @@ class ExerciMath {
         CV = ((100 * desvioPadrao) / media); // coeficiente de variacao
         CV = Nums.arredonda(CV);
 
-        //respotas
+    //  3. Respostas
 
-        //verificação da média
-        try { 
-
-            System.out.print("\n\n\tMédia: "); rMedia = entrada.nextDouble();
-            if (rMedia == media) System.out.println(acerto());
-            else System.out.println("O certo é " + media + erro());
-
-        } catch (InputMismatchException e) {
-            System.out.println("A resposta correta é " + media + erro());
-            entrada.nextLine();
-        }
+        //  verificação da média
+        rMedia = Nums.pedeDouble("\tMédia: ");
+        if (rMedia == media) System.out.println(acerto());
+        else System.out.println("O certo é " + media + erro());
 
         //verificação da variância
-        try {
-
-            System.out.print("\tVariância: "); rS2 = entrada.nextDouble();
-            if (rS2 == s2) System.out.println(acerto());
-            else System.out.println("O certo é " + s2 + erro());
-
-        } catch (InputMismatchException e) {
-            System.out.println("A resposta correta é " + s2 + erro());
-            entrada.nextLine();
-        }
+        rS2 = Nums.pedeDouble("\tVariância: ");
+        if (rS2 == s2) System.out.println(acerto());
+        else System.out.println("O certo é " + s2 + erro());
 
         //verificação do desvio padrão
-        try {
-
-            System.out.print("\tDesvio Padrão: "); rDesvio = entrada.nextDouble();
-            if (rDesvio == desvioPadrao) System.out.println(acerto());
-            else System.out.println("O certo é " + desvioPadrao + erro());
-            
-        } catch (InputMismatchException e) {
-            System.out.println("A resposta correta é " + desvioPadrao + erro());
-            entrada.nextLine();
-        }
+        rDesvio = Nums.pedeDouble("\tDesvio Padrão: ");
+        if (rDesvio == desvioPadrao) System.out.println(acerto());
+        else System.out.println("O certo é " + desvioPadrao + erro());
 
         //verificação do CV
-        try {
-            
-            System.out.print("\tCoeficiente de Variação: "); rCV = entrada.nextDouble();
-            if (rCV == CV) System.out.println(acerto());
-            else System.out.println("O certo é " + CV + erro());
-
-        } catch (InputMismatchException e) {
-            System.out.println("A resposta correta é " + CV + erro());
-            entrada.nextLine();
-        }
+        rCV = Nums.pedeDouble("\tCoeficiente de Variação: ");
+        if (rCV == CV) System.out.println(acerto());
+        else System.out.println("O certo é " + CV + erro());
 
         return 0;
     }
@@ -122,17 +98,11 @@ class ExerciMath {
     
         x = Nums.arredonda((-b) / (double) a);
 
-        System.out.print("\n\tEquação: " + a + "x + " + b + " = 0\n\n\tValor de x: ");
-        try {
+        System.out.print("\n\tEquação: " + a + "x + " + b + " = 0\n\n");
 
-            resposta = entrada.nextDouble();
-            if (x == resposta) System.out.println(acerto());
-            else System.out.printf("\nA resposta certa é " + x + erro());
-
-        } catch (InputMismatchException e) {
-            System.out.printf("\nA resposta certa é " + x + erro());
-            entrada.next();
-        }
+        resposta = Nums.pedeDouble("\tValor de x: ");
+        if (x == resposta) System.out.println(acerto());
+        else System.out.printf("\nA resposta certa é " + x + erro());
 
         return 0;
     }
@@ -141,6 +111,7 @@ class ExerciMath {
 
         double respostaDelta, delta, x1, respostaX1, x2, respostaX2;
         int a, b, c;
+
         // equilibrada nos valores
         a = Nums.intRandom(10);
         b = Nums.intRandom(15);
@@ -150,18 +121,11 @@ class ExerciMath {
         delta = (b * b) - (4 * a * c);
         delta = Nums.arredonda(delta);
 
-        System.out.print("\n\t\tEquação: " + a + "x2 + " + b + "x + " + c + " = 0.\n\n\n\tDelta = ");
+        System.out.print("\n\t\tEquação: " + a + "x2 + " + b + "x + " + c + " = 0.\n\n\n");
 
-        try {
-
-            respostaDelta = entrada.nextDouble();
-            if (respostaDelta == delta) System.out.println(acerto());
-            else System.out.printf("\nA resposta certa é " + delta + erro());
-
-        } catch (InputMismatchException e) {
-            System.out.printf("\nA resposta certa é " + delta + erro());
-            entrada.next();
-        }
+        respostaDelta = Nums.pedeDouble("\tDelta = ");
+        if (respostaDelta == delta) System.out.println(acerto());
+        else System.out.printf("\nA resposta certa é " + delta + erro());
 
         if (delta > 0) {
 
@@ -173,30 +137,16 @@ class ExerciMath {
             x2 = ((b * (-1)) - delta) / (2 * a);
             x2 = Nums.arredonda(x2);
 
-            try {
+            System.out.print("\n\n"); 
+            respostaX1 = Nums.pedeDouble("\tValor do x1 = ");
+            if (respostaX1 == x1) System.out.println(acerto());
+            else System.out.printf("\nA resposta certa é " + x1 + erro());
 
-                System.out.print("\n\n\tValor do x1 = "); respostaX1 = entrada.nextDouble();
-                if (respostaX1 == x1) System.out.println(acerto());
-                else System.out.printf("\nA resposta certa é " + x1 + erro());
-
-            } catch (InputMismatchException e) {
-                System.out.printf("\nA resposta certa é " + x1 + erro());
-                entrada.next();
-            }
-
-            try {
-
-                System.out.print("\n\nValor do x2 = "); respostaX2 = entrada.nextDouble();
-                if (x2 == respostaX2) System.out.println(acerto());
-                else System.out.printf("\nA resposta certa é " + x2 + erro());
-
-            } catch (InputMismatchException e) {
-                System.out.printf("\nA resposta certa é " + x2 + erro());
-                entrada.next();
-            }
-
+            System.out.print("\n\n"); 
+            respostaX2 = Nums.pedeDouble("\tValor do x2 = ");
+            if (respostaX2 == x2) System.out.println(acerto());
+            else System.out.printf("\nA resposta certa é " + x2 + erro());
         }
-        
         return 0;
     }
 
@@ -219,7 +169,7 @@ class ExerciMath {
                 Nums.printaMatriz(mat2);
                 if (sorteio == 1) mat1 = Contas.somarMatriz(mat1, mat2); //se é adição, soma as matrizes
                 else mat1 = Contas.subtrairMatriz(mat1, mat2); //se é subtração, faz a diferença das matrizes
-            }
+            } 
             else { //multiplicação por escalar
 
                 int escalar = Nums.intRandom(10); // o escalar será será um número entre 1 e 10
@@ -227,23 +177,21 @@ class ExerciMath {
                 System.out.println("\n\n\tO escalar é " + escalar + "\n");
             }
     
-            for (int i = 0; i < mat1.length; i++) { //passa por todas as linhas da matriz
+            //passa pela matriz e pega as respostas
+            for (int i = 0; i < mat1.length; i++) { 
                 System.out.println();
-                for (int j = 0; j < mat1[0].length; j++) { //passa por todas as colunas das linhas da matriz
+                for (int j = 0; j < mat1[0].length; j++) {
                     try {
     
                         System.out.print("\tValor do endereço [" + (i+1) + "][" + (j+1) + "]: "); resposta = entrada.nextInt();
                         if (mat1[i][j] == resposta){ acerto(); pontosGanhos ++; }
                         else erro();
-    
                     } catch (InputMismatchException e) { entrada.next(); erro(); }
                 }
             }
-
             System.out.println("\nSegue o gabarito:");
             Nums.printaMatriz(mat1);
             System.out.println("\nO total de pontos ganhos foram " + pontosGanhos + ". Agora está com " + pontos + " pontos.\n");
-
         }
         else { //matriz transposta
 
@@ -258,7 +206,7 @@ class ExerciMath {
                         System.out.print("\tValor do endereço [" + (i+1) + "][" + (j+1) + "]: "); resposta = entrada.nextInt();
                         if (mat2[i][j] == resposta){ acerto(); pontosGanhos ++; }
                         else erro();
-        
+
                     } catch (InputMismatchException e) { entrada.next(); erro(); }
                 }
             }
@@ -267,7 +215,6 @@ class ExerciMath {
             Nums.printaMatriz(mat2);
             System.out.println("\nO total de pontos ganhos foram " + pontosGanhos + ". Agora está com " + pontos + " pontos.\n");
         }
-
         return 0;
     }
 
@@ -300,28 +247,15 @@ class ExerciMath {
         x = (aux2 - (aux * y)) / nx1;
         x = Nums.arredonda(x);
 
-        try {
+        System.out.println();
+        respostaX = Nums.pedeDouble("\tValor do x = ");
+        if (x == respostaX) System.out.println(acerto());
+        else System.out.println("\nA resposta certa é " + x + erro());
 
-            System.out.print("\n\tValor do x = "); respostaX = entrada.nextDouble();
-            if (x == respostaX) System.out.println(acerto());
-            else System.out.println("\nA resposta certa é " + x + erro());
-
-
-        } catch (InputMismatchException e) {
-            System.out.println("\nA resposta certa é " + x + erro()); // se coloca letra, também errou o exercício
-            entrada.next();
-        }
-
-        try {
-
-            System.out.print("\tValor do y = "); respostaY = entrada.nextDouble();
-            if (y == respostaY) System.out.println(acerto());
-            else System.out.printf("\nA resposta certa é " + y + erro());
-
-        } catch (InputMismatchException e) {
-            System.out.println("\nA resposta certa é " + y + erro()); // se coloca letra, também errou o exercício
-            entrada.next();
-        }
+        System.out.println();
+        respostaX = Nums.pedeDouble("\tValor do y = ");
+        if (y == respostaY) System.out.println(acerto());
+        else System.out.println("\nA resposta certa é " + y + erro());
 
         return 0;
     }
@@ -377,93 +311,22 @@ class ExerciMath {
                     break;
                 } catch (InputMismatchException e) { entrada.nextLine(); } //limpa o buffer do Scanner se for letras ou símbolos
             }
-
-            // 1. Agrupamento Discreto
-            if (opcao == 1) {
-
-                // texto inicial
-                System.out.println( "\n\n\t\t--- Agrupamento discreto ---\n\nSaluton, e muito bem vindo! Encontre a média, variância, desvio padrão e coeficiente de variação para ganhar 4 pontos!\nMas cuidado! Se errar, perde 1 ponto.");
-
-                // Repetição
-                while (repetir == 's') {
-
-                    agDiscreto(); // chamada da função de agrupamento discreto
-                    repetir = Util.repetirProcesso(); // Escolha de repetição
-                }
-            }
-
-            // 2. Função de 1º grau
-            if (opcao == 2) {
+               
+            // Repetição
+            while (repetir == 's') {
 
                 // texto inicial
-                System.out.println( "\n\n\t\t--- Função de 1º grau ---\n\nSaluton, e muito bem vindo! Encontre o valor de 'x' para ganhar 2 pontos!\nMas cuidado! Se errar, perde 1 ponto.");
+                System.out.println("\n\n\t\t--- " + titulo[(opcao - 1)] + " ---\n\nSaluton, e muito bem vindo! " + descricao[(opcao - 1)] + "\nMas cuidado! Se errar, perde 1 ponto.");
 
-                // Repetição
-                while (repetir == 's') {
+                if (opcao == 1) agDiscreto(); // chamada da função de agrupamento discreto
+                else if(opcao == 2)  equa1(); // chamada da função de 1º grau
+                else if(opcao == 3)  equa2();
+                else if(opcao == 4)  matrizes();
+                else if(opcao == 5)  sisLinear();
+                else tabuada();
 
-                    equa1(); // chamada da função de 1º grau
-                    repetir = Util.repetirProcesso(); // Escolha de repetição
-                }
+                repetir = Util.repetirProcesso(); // Escolha de repetição
             }
-
-            // 3. Função de 2º grau
-            if (opcao == 3) {
-
-                // Texto inicial
-                System.out.println( "\n\n\t\t--- Função de 2º grau ---\n\nSaluton, e muito bem vindo! Encontre o valor do delta, 'x1' e  'x2' para ganhar 3 pontos!\nMas cuidado! Se errar, perde 1 ponto.");
-
-                // Repetição
-                while (repetir == 's') {
-
-                    equa2(); // chamada da função de 2º grau
-                    repetir = Util.repetirProcesso(); // Escolha de repetição
-                }
-            }
-
-            // 4. Matrizes
-            if (opcao == 4) {
-
-                // Texto inicial
-                System.out.println("\n\n\t\t--- Matrizes ---\n\nSaluton, e muito bem vindo! faça as operações com as matrizes para ganhar pontos!\nMas cuidado! Se errar, perde 1 ponto.");
-
-                // Repetição
-                while (repetir == 's') {
-
-                    matrizes(); // chamada da função de matrizes
-                    repetir = Util.repetirProcesso(); // Escolha de repetição
-
-                }
-            }
-
-            // 5. Sistemas Lineares
-            if (opcao == 5) {
-
-                // Texto inicial
-                System.out.println("\n\n\t\t--- Sistema Linear ---\n\nSaluton, e muito bem vindo! Encontre o valor de 'x' e  'y' para ganhar 2 pontos!\nMas cuidado! Se errar, perde 1 ponto.\n");
-
-                // Repetição
-                while (repetir == 's') {
-
-                    sisLinear(); // chamada da função de 2º grau
-                    repetir = Util.repetirProcesso(); // Escolha de repetição
-
-                }
-            }
-
-            // 6. Tabuada
-            if (opcao == 6) {
-
-                // texto inicial
-                System.out.println( "\n\n\t\t--- Tabuada contra o tempo ---\n\nSaluton, e muito bem vindo! Coloque a resposta certa para ganhar um ponto!\nMas cuidado! Se errar, perde um ponto.");
-
-                // Repetição
-                while (repetir == 's') {
-
-                    tabuada();
-                    repetir = Util.repetirProcesso(); // Escolha de repetição
-                }
-            }
-
             menu = Util.repetirProcesso("\n\nVocê quer voltar ao menu? (s/n): ");
         }
 

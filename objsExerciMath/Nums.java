@@ -3,10 +3,14 @@ package objsExerciMath;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Random;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 
 public class Nums {
 
     static Random random = new Random();
+    static Scanner entrada = new Scanner(System.in);
     
     public static double arredonda(double num){
 
@@ -57,7 +61,7 @@ public class Nums {
         return matriz;
     } 
 
-    public static void printaMatriz(int matriz[][]){
+    public static int printaMatriz(int matriz[][]){
 
         for (int i = 0; i < matriz.length; i++) {
             System.out.println();
@@ -66,5 +70,26 @@ public class Nums {
             }
         }
         System.out.println();
+        return 0;
+    }
+
+    public static double pedeDouble(String msg) {     
+        
+        double num;
+
+        while (true) {
+
+            System.out.print(msg);
+            try { 
+                num = entrada.nextDouble(); 
+                break;
+            }
+            catch (InputMismatchException e) { 
+                entrada.next();
+            } catch (NoSuchElementException e) { 
+                entrada.next();
+            }
+        }
+        return num;
     }
 }
