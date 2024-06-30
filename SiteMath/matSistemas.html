@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equação 1 grau</title>
+   <link rel="shortcut icon" href="midia/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="midia/CSS/style.css">
+    <script src="midia/JS/programacao.js"></script>
+</head>
+
+<body onload="ola(), navega(), fimPagina()">
+
+    <div id="navegador"></div> <!--barra do menu-->
+    <div class="conteudo justificaTexto">
+        <br><div id="fim"></div> <br><br>
+        <h1>Sistemas Lineares</h1> <br><br>
+        <h2>Antes de tudo, o que é um sistema Linear?</h2>
+
+        São um conjunto de equações (vamos tratar apenas com duas) que compartilham de incógnitas iguais (também serão duas nesse caso) e tem relação entre si, como no modelo abaixo: <br><br>
+
+        <div class="centralizaBloco">
+            <code>
+                2x + 1y = 3,5 <br>
+                1x + 2y = 2,5 <br>
+            </code>
+        </div>
+
+        <br><br>
+
+        <h2>Como resolver</h2>
+        O intutito desses problemas matemáticos é, justamente, encontrar os valores das incógnitas (x e y, nesse caso). As três formas escolhidas para chegar nesses valores são <a href="#adição">adição</a>, <a href="#substituição">substituição</a> e <a href="#comparação">comparação</a>: <br><br>
+
+        <ol>
+            <li> <h3 id="adição">Adição</h3> </li>
+
+            Tendo como modelo o sistema acima, vamos encontrar o valor das incógnitas separadamente, com início pela X:
+            
+            <br><br>
+
+            <div class="centralizaBloco">
+                <code>
+                    2x + 1y = 3,5 <br>
+                    1x + 2y = 2,5 <br>
+                </code>
+            </div> <br>
+
+            Para tal, precisamos anular a variável Y, o que será possível quando seus valores forem iguais, <abbr title="Os valores serão os mesmos, porém um é negativo e o outro é positivo">porém opostos entre si. Para chegarmos nisso, se faz necessário</abbr> multiplicar toda a primeira equação pelo número que acompanha o Y da segunda e vice versa, da seguinte forma: <br><br>
+
+            <div class="centralizaBloco">
+                <code>
+                    2x + <strong>1</strong>y = 3,5 (multiplica por 2)<br>
+                    1x + <strong>2</strong>y = 2,5 (multiplica por <abbr title=" O '-' serve para os valores serem opostos entre si. Pode ser feito tanto na de cima quanto na de baixo. Caso os valores já sejam opostos, esse detalhe não é necessário">-1</abbr>)<br><br>
+
+                    <strong>4x</strong> + 2y = <strong>7</strong><br>
+                    <strong>-1x</strong>  -2y = <strong>-2,5</strong>
+
+                </code>
+            </div>               
+
+
+            <br>
+
+            Nessa etapa entra a "adição" desse método, pois literalmente, somaremos o que conseguimos (lembre-se de fazer isso apenas com valores que multiplicam as mesmas incógnitas), da forma que está acima: <br><br> 
+
+            <div class="centralizaBloco">
+                <code>
+                    <strong>3x</strong> + 0y = <strong>4,5</strong><br>
+                    3x = 4,5<br>
+                    x = 4,5 / 3 <br>
+                    x = 1,5
+                </code>
+            </div>
+
+            <br><br>
+
+            Agora que sabemos o valor de X, sobra desvendar o valor de Y. Para isso, utilizamos qualquer umas das euqações inicias do sistema (quis usar a primeira) e substituimos o valor que encontramos agora na variável correspondente e terminamos a conta. Logo, tem-se que: <br><br>
+
+            <div class="centralizaBloco">
+                <code>
+                    2x + 1y = 3,5 <br>
+                    2(1,5) + 1y = 3,5 <br>
+                    3 + y = 3,5 <br>
+                    y = 3,5 - 3 <br>
+                    y = 0,5 <br>
+                </code>
+            </div>
+
+            <br><br>
+
+            <li> <h3 id="substituição">Substituição</h3> </li>
+            Vamos usar como exemplo o sistema acima. Assim como no anterior, vamos descobrir primeiramente o valor de X, para só então encontrar o da Y. <br><br>Na subtituição, isolamos uma das variáveis (X) de um sistema e subtituimos no segundo. EX: <br><br> Nesse caso, vamos isolar o X da primeira equação <br><br>
+
+            <div class="centralizaBloco">
+                <code>
+                    2x + 1y = 3,5 <br>
+                    2x = 3,5 - 1y <br>
+                    x = (3,5 - 1y) / 2 <br><br>
+                </code>
+            </div>
+
+            Agora vamos considerar que o X da segunda equação equivale a <code>(3,5 - 1y) / 2</code>, que é igual ao X da primeira. Ficaria assim: <br><br>
+
+            <div class="centralizaBloco">
+                <code>
+                    1((3,5 - 1y) / 2) + 2y = 2,5 <br>
+                    1,75 - 0,5y + 2y = 2,5  <br>
+                    - 0,5y + 2y = 2,5 - 1,75 <br>
+                    1,5y = 0,75 <br>
+                    y = 0,75 / 1,5 <br>
+                    <strong>y = 0,5 </strong><br><br>
+                </code>
+            </div>
+
+            Agora com o valor de Y, podemos substituir qualquer uma das equações inciais para encontrar o valor de x. Faremos com a segunda dessa vez: <br><br>
+
+            <div class="centralizaBloco">
+                <code>
+                    1x + 2y = 2,5 <br>
+                    1x + 2(0,5) = 2,5 <br>
+                    1x + 1 = 2,5 <br>
+                    1x = 2,5 - 1 <br>
+                    <strong>x = 1,5</strong> <br><br>
+                </code>
+            </div>
+
+            <li> <h3 id="comparação">Comparação</h3> </li>
+
+            O processo é identico ao anterior (substituição), porém agora faremos isso com as duas equações. Dessa vez isolaremos o Y: <br><br>
+
+            <strong>Primeira equação</strong> <br><br>
+
+            <div class="centralizaBloco">
+                <code>
+                    2x + 1y = 3,5 <br>
+                    1y = 3,5 - 2x <br>
+                    y = 3,5 - 2x <br><br>
+                </code>
+            </div>
+
+            <strong>Segunda equação</strong> <br><br>
+
+            <div class="centralizaBloco">
+                <code>
+                    1x + 2y = 2,5 <br>
+                    2y = 2,5 - 1x <br>
+                    y = (2,5 - 1x) / 2 <br>
+                    y = 1,25 - 0,5 <br><br>
+                </code>
+            </div>
+
+            Com as duas igualadas, podemos apenas juntálas com o '=' e resolver para encontrar o valor único de X <br><br>
+
+            <div class="centralizaBloco">
+                <code>
+                    3,5 - 2x = 1,25 - 0,5x <br>
+                    3,5 - 1,25 = 2x - 0,5x <br>
+                    2,25 = 1,5x <br>
+                    2,25 / 1,5 = x <br>
+                    <strong>1,5 = x</strong> <br><br>
+                </code>
+            </div>
+
+            Subsutituindo na segunda equação temos: <br><br>
+
+                <div class="centralizaBloco">
+                    <code>
+                            1x + 2y = 2,5 <br>
+                            1(1,5) + 2y = 2,5 <br>
+                            2y = 2,5 - 1,5 <br>
+                            y = 1 / 2 <br>
+                            <strong>y = 0,5</strong> <br>
+                    </code>
+                </div>
+
+        </ol>
+
+        <br><br>
+        
+        Assim como era esperado, todas as formas de resolver o sistema levam aos mesmos resultados (x = 1,5 e y = 0,5). Logo, use a estratégia que julgar melhor. <br><br> 
+        
+        Quer usar a ferramenta que resolve esses sistemas? Vá para o solucionador de <a href="ferSistemas.html">sistemas lineares</a> <br><br>
+    </div>
+
+    <div id="rodapeh"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="midia/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="midia/CSS/style.css">
+    <script src="midia/JS/programacao.js"></script>
+    <title>Material - Equação 2 grau</title>
+</head>
+
+<body onload="ola(), navega(), fimPagina()">
+
+    <div id="navegador"></div> <!--barra do menu-->
+    <div class="conteudo justificaTexto">
+        <br>
+        <div id="fim"></div> <br><br>
+        <h1>Função de 2º grau</h1>
+
+        <br><br> <strong>Modelo base:</strong> <code>ax <sup>2</sup> + bx + c = 0</code>
+
+        <br><br> Assim como a função de 1º grau, é empregado principalmente na <a href="#ResExerc">resolução de exercícios</a> e construção de gráficos (parábolas).
+
+        <br><br>
+        <h2 id="ResExerc">Resolução de exercícios</h2>
+
+        <br>A principal forma de resolver essas equações é com a fórmula de Baskhara, motivo de raiva de algumas pessoas. O seu modelo é baseado na seguinte estrutura:
+
+        <br><br><code></code>
+
+        <div class="centralizaBloco"><img src="midia/imagens/conteudos/baskhara.png" alt=""></div>
+
+        <br><br>Vale ressaltar que todas essas letras são referentes às que compõem a função de 2ºgrau que usaremos.
+        Outro detalhe interessante é que a parte dentro da raiz quadrada (<code>b <sup>2</sup> - 4 . a . c</code>) pode
+        ser feita separada, processo atribuido à variável delta (&Delta;).
+
+        <br><br>Antes de entrarmos nesse processo, há algumas situações que é importante lembrarmos: <br><br>
+
+        <ul>
+            <li>A equação usada para explicação estará <abbr title="usará o modelo da equação base">completa</abbr>, porém há situações em que <code>b</code>, <code>c</code> ou ambos são 0. Além disso, em alguns casos eles nem estarão escritos na equação! Se isso acontecer, serão = 0. Vale lembrar que não é equação de 2º grau se a = 0</li>
+
+            <br>
+
+            <li>Na explicação da conta a equação veio organizada (<code>a, b, c</code>), porém não é algo obrigatório. O ideal é lembrar que <code>a</code> sempre multiplicará a <abbr title="x ou qualquer outra letra/símbolo">incógnita</abbr> que está elevada ao quadrado. <code>b</code> será o valor que multiplica a incógnita e o <code>c</code> é o 'número sozinho', por assim dizer.</li>
+
+            <br>
+
+            <li>O delta pode ser negativo. Em casos como esses, deve-se 'parar a conta', pois como as respostas geralmente são dadas em números reais, não será algo possível ao fazer uma raiz quadrada de um valor negativo. </li>
+
+            <br>
+
+            <li>Pode ocorrer de não encontrar 'x1' e 'x2', mas apenas um valor que se repete em ambas as contas. Isso é normal, pois significa que apenas um valor satisfaz a equação. </li>
+        </ul>
+
+        <br><br>
+        <h3>Destrinchando a conta...</h3>
+
+        <br>Para isso, usaremos <code>2x <sup>2</sup> + 4x - 10 = 0</code>
+
+        <br><br>Como a resposta geralmente é composta por dois valores, dividiremos esse processo em 3 etapas:
+
+        <ol>
+            <br>
+
+            <li>
+                <h4>Definir as variáveis</h4>
+            </li>
+            <br>De acordo com a equação
+            <br><br><code>a</code> = 2
+            <br><code>b</code> = 4
+            <br><code>c</code> = -10
+
+            <br><br><br>
+
+            <li>
+                <h4>Resolver o delta</h4>
+            </li>
+
+            <br>Caso não queira utilizar o delta, pode simplesmente fazer esse processo dentro da raiz quadrada.
+
+            <br><br>
+
+            <div>
+                <code>
+                    &Delta; = b <sup>2</sup> - 4 . a . c <br>
+                    &Delta; = 4 <sup>2</sup> - 4 . 2 . (-10) <br>
+                    &Delta; = 16 - 4 . (-20) <br>
+                    &Delta; = 16 - (-80) <br>
+                    &Delta; = 16 + 80 <br>
+                    &Delta; = 96 <br>
+                </code>
+            </div>
+
+            <br><br>
+
+            <li>
+                <h4>encontrar x1 e x2</h4>
+            </li>
+
+            <br>Agora temos que voltar a equação original completá-la:
+
+            <br><br>
+
+            <div class="centralizaTexto"><code>- b &plusmn; &radic; 96 / 2.a</code></div>
+
+            <br><br> O símbolo &plusmn; servirá encontrarmos as duas respostas. No x1 ele vira '+' e para
+            o x2 ele é subtituido por '-'. Logo:
+
+            <br><br>
+
+            <div>
+            
+            <code><strong>x1</strong> = (- 4 <strong>+</strong> &radic; 78) / 2 * 2</code>
+            <br><code><strong>x1</strong> = (- 4 <strong>+</strong> 9,80) / 4</code>
+            <br><code><strong>x1</strong> = (5,80) / 4</code>
+            <br><code><strong>x1</strong> = 1,45</code>
+
+            <br><br> & <br><br>
+
+            
+                <code>
+                    <strong>x2</strong> = (- 4 <strong>-</strong> &radic; 78) / 2 * 2</code>
+                    <br><code><strong>x2</strong> = (- 4 <strong>-</strong> 9,80) / 4</code>
+                    <br><code><strong>x2</strong> = (-13,80) / 4</code>
+                    <br><code><strong>x2</strong> = -3,45
+                </code>
+            </div>
+
+        </ol>
+
+        <br><br><br><strong>E o que esses valores de x1 e x2 representam, afinal? </strong>
+        <br>Na resolução de exercícios, são os números que, subtituidos pelo 'x', tornam a equação 'verdadeira'. Usarei o <strong>x1</strong> como exemplo: <br><br>
+
+        <div class="centralizaBloco">
+            <code>
+                2x<sup>2</sup> + 4x - 10 = 0 <br>
+                2.(1,45)<sup>2</sup> + 4.(1,45) - 10 = 0 <br>
+                2.2,1025 + 5,8 - 10 = 0 <br>
+                4,205 + 5,8 - 10 = 0 <br>
+                10,005 - 10 = 0 <br>
+                0,005 &asymp; 0
+            </code>
+        </div>
+
+        <br><br>
+
+        <strong>Mas está certo?</strong>
+        <br>Sim e não. O número não deu exatamente 0 pois arredondamos o valor tanto do &Delta; quanto da divisão do x1 e x2. Entretanto, como definos suas respostas com duas casas decimais e seguindo o <strong>padrão de arredondamento</strong>, esse resultado está certo, porém não exato. 
+        
+        <br><br>De todo modo, é evidente que quanto mais perto nos aproximarmos do limite em que 1,45 (ou -3,45) tende a 0, o resultado final será mais próximo do ideal. Não entendeu como funcionam os limites? Uma matéria sobre sairá em breve! 
+
+        <br><br>Mas enquanto ela não chega...
+
+
+        <br><br> Quer usar a ferramenta que resolve essas equações? Vá para o solucionador de <a href="ferEqua2grau.html">equações de 2ºgrau</a>
+    </div>
+
+    <br><br>
+
+    <div id="rodapeh"></div>
+
+</body>
+
+</html>
