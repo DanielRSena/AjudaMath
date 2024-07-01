@@ -11,12 +11,15 @@ document.getElementById(nx_2.value);
 document.getElementById(ny_2.value);
 document.getElementById(n_2.value);
 
-
 //1. Funções para o funcionamento do site
 
 //Barra de menu
 function navega() {
-    navegador.innerHTML += "<header> <nav><div id='logo'><a href='index.html' id='logo'> <img src='midia/imagens/favicon.ico' alt=''></a> </div><div class='menu'><ul><li class='abas'><a href=''>Materiais</a><div class='menuBaixo'><a href='matEqua1grau.html'>Equação de 1º grau</a><a href='matEqua2grau.html'>Equação de 2º grau</a><a href='matSistemas.html'>Sistemas Lineares</a> </div> </li> <li class='abas'> <a href=''>Ferramentas</a> <div class='menuBaixo'> <a href='ferEqua1grau.html'>Equação de 1º grau</a>   <a href='ferEqua2grau.html'>Equação de 2º grau</a> <a href='ferSistemas.html'>Sistemas Lineares</a> </div>  </li> <li class='abas'>  <a href='siteMath.html'>SiteMath</a>  </li>  </ul> </div> <div class='iconResponsivo'>  <button onclick='mostraMenu()'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' class='bi bi-list' viewBox='0 0 16 16'> <path fill-rule='evenodd' d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5' /></svg></button> </div> </nav> <div class='menuResponsivo centralizaTexto'> <br><br>  <h2>Materiais</h2><br><a href='matEqua1grau.html'>Equação de 1º grau</a><br><br> <a href='matEqua2grau.html'>Equação de 2º grau</a> <br><br> <a href='matSistemas.html'>Sistemas Lineares</a> <br><br><h2>Ferramentas</h2> <br><a href='ferEqua1grau.html'>Equação de 1º grau</a> <br><br> <a href='ferEqua2grau.html'>Equação de 2º grau</a> <br><br><a href='ferSistemas.html'>Sistemas Lineares</a> <br><br> <h2>SiteMath</h2><br> <a href='siteMath.html'>O que é o SiteMath</a><br><br></div></header>"
+    fetch('arqs/htmls/menu.html').then(response => response.text())
+    .then(data => {
+        document.getElementById('navegador').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading navegador:', error));
 }
 
 //Mensagem de boas vindas do site, junto com a data
@@ -102,7 +105,11 @@ function mostraMenu() {
 
 //Rodapé da página
 function fimPagina() {
-    rodapeh.innerHTML = "<div class='rodape'> <div id='logo'> <img src='midia/imagens/minha_foto.png' alt='minha_foto'> </div> <div id='logo'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div> <div class='rConteudo'> <strong>DANIEL RAMOS SENA</strong> <br> Idealizador do AjudaMath<br><br> <a href='https://instagram.com/odanielrsena' target='_blank' rel='nofollow'><img src='midia/imagens/insticon.png' alt=''></a> &nbsp; <a href='https://github.com/DanielRSena' target='_blank' rel='external'> <img src='midia/imagens/giticon.png' alt=''></a> &nbsp; <a href='https://www.linkedin.com/in/daniel-ramos-sena-84226724a/' target='_blank' rel='external'><img src='midia/imagens/linkicon.png' alt=''></a> <br><br> Muito obrigado por visitar esse site :) <br><br> Quer sugerir ou comentar algo? <a href='mailto:danielsena20@hotmail.com?subject=ideias para o SiteMath' > Me envie um e-mail! </a> </div> </div>";
+    fetch('arqs/htmls/rodape.html').then(response => response.text())
+    .then(data => {
+        document.getElementById('rodapeh').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading rodapé:', error));
 }
 
 
@@ -111,8 +118,8 @@ function fimPagina() {
 //verifica se os valores digitados nas ferramentas realmente são números
 function valida() {
     erro = false;
-    for (let i = 0; i < arguments.length; i++) { if (isNaN(arguments[i])) erro = true; }
-
+    for (let i = 0; i < arguments.length; i++) 
+        if (isNaN(arguments[i])) erro = true;
     return erro;
 }
 

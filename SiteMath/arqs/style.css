@@ -18,6 +18,8 @@ body {
     line-height: 1.46; /*Espaçamento entre linhas*/
 }
 
+
+
 nav {
     background-image: var(--degAzulAzul);
     display: flex;
