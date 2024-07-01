@@ -37,7 +37,7 @@ Este <em>site</em> tem conteúdo teórico e resolução dos seguintes temas:
 2. Equação de 2º grau (Bhaskara)
 3. Sistemas lineares (adição, substituição e comparação)
 <br><br>
-Quer visitá-lo? <a href="https://danielrsena.github.io/SiteMath/index.html">Vamos lá!</a>
+Quer visitá-lo? <a href="https://danielrsena.github.io/AjudaMath/SiteMath/index.html">Vamos lá!</a>
 
 
 
