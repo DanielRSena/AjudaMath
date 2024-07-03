@@ -18,29 +18,26 @@ float **criarMatriz(int linhas, int colunas) {
     return matriz;
 }
 
-void printaMatriz(int linhas, int colunas, float **matriz) {
+void printarMatriz(int linhas, int colunas, float **matriz) {
     printf("\nMatriz:\n\n");
     for (int i = 0; i < linhas; i++) {
-        for (int j = 0; j < colunas; j++) {
+        for (int j = 0; j < colunas; j++)
             printf("%.2f\t", matriz[i][j]);
-        }
         printf("\n");
     }
 }
 
-float **somaMatriz(int linhas, int colunas, float **m1, float **m2) {
-    for (int i = 0; i < linhas; i++) {
+float **somarMatriz(int linhas, int colunas, float **m1, float **m2) {
+    for (int i = 0; i < linhas; i++)
         for (int j = 0; j < colunas; j++) 
             m1[i][j] += m2[i][j];
-    }
     return m1;
 }
 
-float **subtraiMatriz(int linhas, int colunas, float **m1, float **m2) {
-    for (int i = 0; i < linhas; i++) {
+float **subtrairMatriz(int linhas, int colunas, float **m1, float **m2) {
+    for (int i = 0; i < linhas; i++)
         for (int j = 0; j < colunas; j++) 
             m1[i][j] -= m2[i][j];
-    }
     return m1;
 }
 
@@ -65,8 +62,7 @@ float **matrizTransposta(int linhas, int colunas, float **m1) {
 }
 
 void liberarMatriz(int linhas, float **matriz) {
-    for (int i = 0; i < linhas; i++) {
+    for (int i = 0; i < linhas; i++)
         free(matriz[i]); // Libera as colunas de cada linha
-    }
     free(matriz); // Libera as linhas da matriz
 }

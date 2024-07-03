@@ -112,6 +112,18 @@ function fimPagina() {
     .catch(error => console.error('Error loading rodapé:', error));
 }
 
+function deslizar() { 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+}
+
+
 
 //2. Funções para as ferramentas matemáticas
 
