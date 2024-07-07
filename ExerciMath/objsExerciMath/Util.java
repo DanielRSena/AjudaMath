@@ -38,4 +38,29 @@ public class Util {
         return voltar;
     }
 
+    public static int acerto(int pontos) {
+        return pontos += 1;
+    }
+
+    public static int erro(int pontos) {
+        return pontos -= 1;
+    }
+
+    public static double[] bubbleSort(double v[], int n) {
+        int i;
+        double aux;
+    
+        for(i = n - 1; i >= 1; i--) {
+            for(int j = 0; j < i; j++) {
+                if(v[j] > v[j+1]) {
+                    aux = v[j];
+                    v[j] = v[j+1];
+                    v[j+1] = aux;
+                }
+            }
+        }
+
+        return v;
+    }
+
 }

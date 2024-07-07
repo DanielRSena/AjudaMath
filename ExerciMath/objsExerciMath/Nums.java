@@ -13,7 +13,6 @@ public class Nums {
     static Scanner entrada = new Scanner(System.in);
     
     public static double arredonda(double num){
-
         BigDecimal resNum = BigDecimal.valueOf(num).setScale(2, RoundingMode.HALF_UP);
         num = resNum.doubleValue();
         return num;
