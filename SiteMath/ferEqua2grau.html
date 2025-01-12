@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equação 1° grau</title>
+    <title>Equação 2° grau</title>
     <link rel="shortcut icon" href="arqs/imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="arqs/style.css">
-    <script src="arqs/programacao.js"></script>
+    <script type="module" src="arqs/programacao.js" defer></script>
 </head>
 
-<body onload="ola(), navega(), fimPagina()">
+<body>
 
-    <div id="navegador"></div>
+    <header></header>
 
     <div class="conteudo centralizaTexto"> <br>
 
@@ -20,13 +20,13 @@
 
         <h1>Equação de 2º grau</h1> <br><br>
 
-        Lembre-se de que a vírgula (,) deve ser substituída pelo ponto (.) <br><br>
+        Equação: 
+            <input type="text" class="caixaNum" id="var_a" required> x <sup>2</sup> + 
+            <input type="text" class="caixaNum" id="var_b" required> x + 
+            <input type="text" class="caixaNum" id="var_c" required> = 
+            <input type="text" class="caixaNum" id="igualdade" required> <br><br>
 
-        Equação: <input type="text" class="caixaNum" id="var_a"> x <sup>2</sup> + <input type="text" class="caixaNum"
-            id="var_b"> x + <input type="text" class="caixaNum" id="var_c"> = <input type="text" class="caixaNum"
-            id="igualdade"> <br><br>
-
-        <input type="button" value="Finalizar" onclick="equação_2_grau()">
+        <input id="botao2grau" type="button" value="Finalizar">
 
         <div id="resultado"></div>
 
@@ -34,7 +34,7 @@
 
     </div>
 
-    <div id="rodapeh"></div>
+    <footer></footer>
 
 </body>
 

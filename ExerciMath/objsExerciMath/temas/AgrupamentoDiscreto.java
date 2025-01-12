@@ -1,6 +1,7 @@
 package objsExerciMath.temas;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 import objsExerciMath.Nums;
 import objsExerciMath.Util;
@@ -8,41 +9,43 @@ import objsExerciMath.Util;
 public class AgrupamentoDiscreto {
     public static int executar(Scanner entrada, int pontos) {
 
-        int nAmostras = 5, frequencias[] = new int[nAmostras];
+        int i, nAmostras = 5, frequencias[] = new int[nAmostras];
         double media = 0.0, s2 = 0.0, desvioPadrao = 0.0, CV = 0.0, tFreq = 0.0, rMedia, rDesvio, rCV, rS2;
-        double amostras[] = new double[nAmostras], auxAmostras[] = new double[nAmostras];
+        ArrayList<Double> amostras = new ArrayList<>(), auxAmostras = new ArrayList<>();
 
         System.out.println("Lembre-se de ordenar as amostras antes de calcular!\n\n\txi\t f");
 
         //  armazena e printa os valores
-        for (int i = 0; i < nAmostras; i++) {
-            amostras[i] = Nums.arredonda(Nums.doubleRandom(50)); //sorteia um número aleatório entre 0 e 50 e o arredonda
-            amostras.clone(Util.bubbleSort(auxAmostras, nAmostras));
-            System.out.print("\t" + amostras[i] + "\t");
-            auxAmostras[i] = amostras[i]; //ajuda na conta da média, sem comprometer as outras
+        for (i = 0; i < nAmostras; i++) {
+            amostras.add(Nums.arredonda(Nums.doubleRandom(50))); //sorteia um número aleatório entre 0 e 50 e o arredonda
+            amostras.sort(null);
+            System.out.print("\t" + amostras.get(i) + "\t");
+            auxAmostras.add(amostras.get(i)); //ajuda na conta da média, sem comprometer as outras
             frequencias[i] = Nums.intRandom(50); //sorteia um inteiro entre 0 e 50
             System.out.println(frequencias[i]);
         }
 
         // média
-        for (int i = 0; i < nAmostras; i++) {
-            auxAmostras[i] *= frequencias[i]; // multiplica as amostras pela sua respectiva frequência
-            media += auxAmostras[i]; // o produto disto é acumulado
+        i = 0;
+        for (Double amostra: amostras) {
+            amostra *= frequencias[i]; // multiplica as amostras pela sua respectiva frequência
+            media += auxAmostras.get(i); // o produto disto é acumulado
             tFreq += frequencias[i]; // todas as frequências são acumuladas
         }
 
         media = Nums.arredonda(media / tFreq); //faz a média e a arredonda
 
-        // variancia
-        for (int i = 0; i < nAmostras; i++) {
-            amostras[i] = Math.pow((amostras[i] - media), 2) * frequencias[i];
-            s2 = s2 + amostras[i];
+        // variância
+        i = 0;
+        for (Double amostra: amostras) {
+            amostra = Math.pow((amostra - media), 2) * frequencias[i];
+            s2 = s2 + amostras.get(i);
         }
         s2 = Nums.arredonda(s2 / (tFreq - 1));
         
-        desvioPadrao = Nums.arredonda(Math.sqrt(s2)); // desvio padrao
+        desvioPadrao = Nums.arredonda(Math.sqrt(s2)); // desvio padrão
     
-        CV = ((100 * desvioPadrao) / media); // coeficiente de variacao
+        CV = ((100 * desvioPadrao) / media); // coeficiente de variação
         CV = Nums.arredonda(CV);
 
         //  verificação da média

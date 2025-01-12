@@ -47,20 +47,18 @@ public class Util {
     }
 
     public static double[] bubbleSort(double v[], int n) {
-        int i;
         double aux;
     
-        for(i = n - 1; i >= 1; i--) {
+        for(int i = n - 1; i >= 1; i--) {
             for(int j = 0; j < i; j++) {
-                if(v[j] > v[j+1]) {
+                if(v[j] > v[j + 1]) {
                     aux = v[j];
-                    v[j] = v[j+1];
-                    v[j+1] = aux;
+                    v[j] = v[j + 1];
+                    v[j + 1] = aux;
                 }
             }
         }
 
         return v;
     }
-
 }

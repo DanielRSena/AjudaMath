@@ -45,5 +45,6 @@ int main() {
 		menu = repetirProcesso("\nDeseja retornar ao menu? (s/n): ");
 	}
 
+	free(titulos);
 	printf("\n--------------------\n\n\tMuito obrigado por usar o RespondeMath! Aceito sugestoes :)\n\n--------------------\n\n");
 }

@@ -5,22 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="arqs/imagens/favicon.ico" type="image/x-icon">
-    <script src="arqs/programacao.js"></script>
+    <script type="module" src="arqs/programacao.js" defer></script>
     <link rel="stylesheet" href="arqs/style.css">
     <title>Sistemas Lineares</title>
 </head>
 
-<body onload="ola(), navega(), fimPagina()">
+<body>
 
-    <div id="navegador"></div>
+    <header></header>
 
     <div class="conteudo centralizaTexto" id="ferramentas"> <br>
         
         <div class="justificaTexto" id="fim"></div> <br><br>
 
         <h1>Sistemas Lineares</h1> <br><br>
-
-        Lembre-se de que a vírgula (,) deve ser substituída pelo ponto (.) <br><br>
 
         Coloque os dois sistemas: <br><br>
 
@@ -33,7 +31,7 @@
         <input type="text" class="caixaNum" id="ny_2">y = 
         <input type="text" class="caixaNum" id="n_2"> <br><br>
 
-        <input type="button" value="Finalizar" onclick="sistemasLineares()">
+        <input id="botaoSistemas" type="button" value="Finalizar">
 
         <div id="sistemas"></div> <br><br> 
         
@@ -41,7 +39,7 @@
 
     </div>
 
-    <div id="rodapeh"></div>
+    <footer></footer>
 
 </body>
 
