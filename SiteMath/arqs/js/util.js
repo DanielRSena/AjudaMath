@@ -36,3 +36,10 @@ export function deslizar() {
     });
   });
 }
+
+export function inverterLista() {
+  const lista = document.getElementById("atualizacoes");
+  const itens = Array.from(lista.children).reverse();
+  lista.innerHTML = "";
+  itens.forEach(item => lista.appendChild(item));
+}

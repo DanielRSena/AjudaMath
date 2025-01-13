@@ -1,5 +1,5 @@
 import { includeHTML, ola, deslizar, mostrarMenu } from "./js/util.js"
-import { equacao1Grau, equacao2Grau, sistemasLineares } from "./js/contas.js";
+import { equacao1Grau, equacao2Grau, sistemasLineares, vMedia } from "./js/contas.js";
 
 ola();
 
@@ -26,3 +26,6 @@ if (botao2Grau) botao2Grau.addEventListener('click', equacao2Grau);
 
 const botaoSistema = document.getElementById('botaoSistemas');
 if (botaoSistema) botaoSistema.addEventListener('click', sistemasLineares);
+
+const botaoVMedia = document.getElementById('botaoVMedia');
+if (botaoVMedia) botaoVMedia.addEventListener('click', vMedia);

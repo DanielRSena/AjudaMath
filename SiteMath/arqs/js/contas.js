@@ -127,3 +127,18 @@ export function sistemasLineares() {
         sistemas.innerHTML = "<br><br> X = " + x + "<br>Y = " + y;
     }
 }
+
+//velociade média
+export function vMedia() {
+
+    document.getElementById("velocidade").value = "";
+
+    var distancia = verificarNumero("distancia");
+    var tempo = verificarNumero("tempo");
+
+    if(valida(distancia, tempo) != true) {
+        var resultado = distancia / tempo;
+        resultado = parseFloat(resultado.toFixed(2));
+        document.getElementById("velocidade").value = resultado;
+    }
+}

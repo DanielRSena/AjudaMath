@@ -89,6 +89,13 @@ picture { z-index: 0; }
 
 .justificaTexto{ text-align: justify;}
 
+.vMedia { 
+    display: flex;
+    flex-direction: column;
+    text-align:right; 
+    justify-content: center;
+}
+
 .rodape {
     display: flex;
     padding: 1rem;
