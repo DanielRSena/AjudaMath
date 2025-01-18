@@ -14,16 +14,27 @@ export function ola() {
 
   var dia = hoje.getDate();
   var diasemana = hoje.getDay();
-  
+
   var mes = hoje.getMonth() + 1;
-  
+
   fim.innerHTML += ("Olá, e muito bem vindo ao SiteMath, o <em>site</em> do <a href='siteMath.html'>AjudaMath!</a> Hoje é " + diasSemana[diasemana] + ", dia  " + dia + " de " + meses[mes - 1] + " de " + hoje.getFullYear() + "<br><br>");
 }
 
 export function mostrarMenu() {
-  let menuRespons = document.querySelector('.menuResponsivo');
-  if (menuRespons.classList.contains('open')) menuRespons.classList.remove('open');
-  else menuRespons.classList.add('open');
+  const menuButton = document.getElementById("botaoMenu");
+  const menu = document.getElementById("menu");
+  const nav = document.querySelector("nav"); // Seleciona o elemento <nav>
+
+  menuButton.addEventListener("click", function () {
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("visible");
+
+    if (menu.classList.contains("visible")) nav.classList.add("open");
+    else nav.classList.remove("open");
+
+    menuButton.classList.toggle("open");
+    menuButton.innerHTML = (menu.classList.contains("visible")) ? '<i class="bi bi-x"></i>' : '<i class="bi bi-list"></i>';
+  });
 }
 
 export function deslizar() {
@@ -35,11 +46,4 @@ export function deslizar() {
       });
     });
   });
-}
-
-export function inverterLista() {
-  const lista = document.getElementById("atualizacoes");
-  const itens = Array.from(lista.children).reverse();
-  lista.innerHTML = "";
-  itens.forEach(item => lista.appendChild(item));
 }

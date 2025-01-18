@@ -5,13 +5,8 @@ ola();
 
 includeHTML('header', './arqs/htmls/menu.html').then(() => {
     const botao = document.getElementById('botaoMenu'); // Agora o botão já existe no DOM
-    if (botao) {
-        botao.addEventListener('click', () => {
-            mostrarMenu(); // Chama a função quando o botão é clicado
-        });
-    } else {
-        console.error('Botão #botaoMenu não encontrado no DOM.');
-    }
+    if (botao) mostrarMenu();
+    else console.error('Botão #botaoMenu não encontrado no DOM.');
 });
 
 includeHTML("footer", "./arqs/htmls/rodape.html");
