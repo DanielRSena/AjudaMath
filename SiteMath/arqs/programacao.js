@@ -1,5 +1,5 @@
 import { includeHTML, ola, deslizar, mostrarMenu } from "./js/util.js"
-import { equacao1Grau, equacao2Grau, sistemasLineares, vMedia } from "./js/contas.js";
+import { equacao1Grau, equacao2Grau, sistemasLineares, vMedia, circunferencia, areaCirculo, comprimentoArco } from "./js/contas.js";
 
 ola();
 
@@ -24,3 +24,12 @@ if (botaoSistema) botaoSistema.addEventListener('click', sistemasLineares);
 
 const botaoVMedia = document.getElementById('botaoVMedia');
 if (botaoVMedia) botaoVMedia.addEventListener('click', vMedia);
+
+const botaoCircunferencia = document.getElementById('botaoCircunferencia');
+if (botaoCircunferencia) botaoCircunferencia.addEventListener('click', circunferencia);
+
+const botaoAreaCirculo = document.getElementById('botaoAreaCirculo');
+if (botaoAreaCirculo) botaoAreaCirculo.addEventListener('click', areaCirculo);
+
+const botaoComprimento = document.getElementById('botaoComprimento');
+if (botaoComprimento) botaoComprimento.addEventListener('click', comprimentoArco);

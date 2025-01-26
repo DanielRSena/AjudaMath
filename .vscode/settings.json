@@ -2,5 +2,8 @@
     "files.associations": {
         "matrizes.h": "c",
         "bibliomath.h": "c"
-    }
+    },
+    "cSpell.words": [
+        "Bhaskara"
+    ]
 }

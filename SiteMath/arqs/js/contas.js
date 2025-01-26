@@ -9,7 +9,7 @@ function valida() {
 }
 
 function verificarNumero(id) {
-    const num = document.getElementById(id); 
+    const num = document.getElementById(id);
     const valor = num.value.trim();
     const numero = parseFloat(valor.replace(',', '.'));
     return numero;
@@ -24,17 +24,17 @@ export function equacao1Grau() {
     var b = verificarNumero("var_b");
     var vIgualdade = verificarNumero("igualdade");
 
-    if(a == 0) document.getElementById("f1grau").innerHTML = "<br><br>Erro! o 'a' deve ser diferente de 0.<br><br>";
+    if (a == 0) document.getElementById("f1grau").innerHTML = "<br><br>Erro! o 'a' deve ser diferente de 0.<br><br>";
     if (!isNaN(a) && !isNaN(b) && !isNaN(vIgualdade)) {
-            f1grau.innerHTML = "<br><br>" + a + "x + " + b + " = " + vIgualdade + "<br><br>" + a + "x = " + vIgualdade + " - " + b + "<br><br>";
+        f1grau.innerHTML = "<br><br>" + a + "x + " + b + " = " + vIgualdade + "<br><br>" + a + "x = " + vIgualdade + " - " + b + "<br><br>";
 
-            b = b * (-1) + vIgualdade;
+        b = b * (-1) + vIgualdade;
 
-            f1grau.innerHTML += a + "x = " + b + "<br><br> x = " + b + " / " + a + "<br><br>";
+        f1grau.innerHTML += a + "x = " + b + "<br><br> x = " + b + " / " + a + "<br><br>";
 
-            var resultado = b / a;
+        var resultado = b / a;
 
-            f1grau.innerHTML += "<strong>x = " + resultado + "</strong><br><br>";
+        f1grau.innerHTML += "<strong>x = " + resultado + "</strong><br><br>";
     }
 }
 
@@ -49,7 +49,7 @@ export function equacao2Grau() {
 
     if (valida(a, b, c, vIgualdade) != true) {
 
-        if(a == 0) resultado.innerHTML = "<br><br>Erro! o 'a' deve ser diferente de 0.<br><br>";
+        if (a == 0) resultado.innerHTML = "<br><br>Erro! o 'a' deve ser diferente de 0.<br><br>";
         else {
             c += (vIgualdade * (-1));
 
@@ -104,7 +104,7 @@ export function sistemasLineares() {
     var teste = valida(nx1, ny1, n1, nx2, ny2, n2) //faz um teste para ter certeza de que todas as variáveis são números
 
     if (!teste == true) {
-        
+
         aux = ny1;
         ny1 *= nx2;
         aux2 = n1;
@@ -136,9 +136,48 @@ export function vMedia() {
     var distancia = verificarNumero("distancia");
     var tempo = verificarNumero("tempo");
 
-    if(valida(distancia, tempo) != true) {
+    if (valida(distancia, tempo) != true) {
         var resultado = distancia / tempo;
         resultado = parseFloat(resultado.toFixed(2));
         document.getElementById("velocidade").value = resultado;
     }
+}
+
+export function circunferencia() {
+    var raio = verificarNumero(window.innerWidth <= 725 ? "raio-mobile" : "raio-desktop");
+
+    if (valida(raio) != true) {
+        var circunferencia = 2 * Math.PI * raio;
+        circunferencia = parseFloat(circunferencia.toFixed(2));
+        circunferenciaResult.innerHTML = circunferencia;
+        document.getElementById("circunferencia").value = circunferencia;
+    }
+    else document.getElementById("circunferencia").value = "?";
+}
+
+export function areaCirculo() {
+
+    var raio = verificarNumero(window.innerWidth <= 725 ? "raioArea-mobile" : "raioArea-desktop");
+
+    if (valida(raio) != true) {
+        var area = Math.PI * raio * raio;
+        area = parseFloat(area.toFixed(2));
+        areaResult.innerHTML = area;
+        document.getElementById("areaResult-mobile").value = area
+    }
+    else areaResult.innerHTML = "?";
+}
+
+export function comprimentoArco() {
+
+    var raio = verificarNumero(window.innerWidth <= 725 ? "raioComprimento-mobile" : "raioComprimento-desktop");
+    var angulo = verificarNumero(window.innerWidth <= 725 ? "anguloComprimento-mobile" : "anguloComprimento-desktop");
+
+    if (valida(raio, angulo) != true) {
+        var comprimento = 2 * Math.PI * raio * angulo / 360;
+        comprimento = parseFloat(comprimento.toFixed(2));
+        comprimentoResult.innerHTML = comprimento;
+        document.getElementById("comprimento").value = comprimento;
+    }
+    else comprimentoResult.innerHTML = "?";
 }

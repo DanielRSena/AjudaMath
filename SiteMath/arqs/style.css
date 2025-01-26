@@ -8,6 +8,7 @@
     --azulClaro: #b3cee4;
     --azulMedio: #68B5F5;
     --azulForte: #0668A8;
+    --laranjaClaro: #f9a825;
     --laranjaEscuro: #ce8129bb;
 
     --degAzulBranco: linear-gradient(to right, var(--azulClaro), white);
@@ -153,7 +154,7 @@ td { border: 2px solid; }
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-    height: 400px;
+    height: 432px;
     transition: height 0.87s ease, opacity 1.5s ease;
 }
 
@@ -168,6 +169,72 @@ td { border: 2px solid; }
     display: block;
 }
 
+.tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que as abas quebrem linha */
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    border: 2px solid var(--azulClaro);
+    background-color: var(--azulClaro);
+    font-weight: bold;
+    flex: 1; /* Faz as abas ocuparem espaço igual */
+    transition: all 0.3s ease;
+}
+
+.tab:hover, .tab.active {
+    border-color: var(--laranjaEscuro);
+    color: #fff;
+}
+
+.tab.active {background-color: var(--laranjaClaro);}
+.tab:hover {background-color: var(--laranjaEscuro);}
+
+.tab-container {
+    position: relative;
+    overflow: hidden; /* Esconde conteúdo fora do container */
+    max-width: 100%;
+}
+
+.tab-contents {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Deslizamento suave */
+    width: 300%; /* Três abas de conteúdo */
+}
+
+.tab-content {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tab-content h2 {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.contaCirculos {
+    display: none;
+}
+
+.contaCirculos span { display: none; }
+
+@media (max-width: 725px) {
+    .tabs {
+        flex-direction: column;
+        align-items: stretch; /* Cada aba ocupa a largura total */
+        width: 100%;
+        gap: 5px;
+    }
+}
+
 @media (min-width: 666px) {
     .menuResponsivo {
         display: grid;
@@ -178,8 +245,28 @@ td { border: 2px solid; }
         opacity: 0;
         flex-direction: column;
     }
-
-    .menuResponsivo.visible { height: 200px; }
+    
+    .menuResponsivo.visible { height: 232px; }
 
     .iconResponsivo button { display: block; }
+}
+
+@media (min-width: 725px) {
+
+    .contaCirculos span { display: block; }
+
+    .contaCirculos {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2%;
+    }
+
+    .tab-content .vMedia {
+        display: none;
+    }
+
+    .caixaNum {
+        width: 60px;
+    }
 }
