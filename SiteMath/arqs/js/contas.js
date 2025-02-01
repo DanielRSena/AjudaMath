@@ -138,7 +138,7 @@ export function vMedia() {
 
     if (valida(distancia, tempo) != true) {
         var resultado = distancia / tempo;
-        resultado = parseFloat(resultado.toFixed(2));
+        resultado = Math.abs(parseFloat(resultado.toFixed(2)));
         document.getElementById("velocidade").value = resultado;
     }
 }
@@ -148,7 +148,7 @@ export function circunferencia() {
 
     if (valida(raio) != true) {
         var circunferencia = 2 * Math.PI * raio;
-        circunferencia = parseFloat(circunferencia.toFixed(2));
+        circunferencia = Math.abs(parseFloat(circunferencia.toFixed(2)));
         circunferenciaResult.innerHTML = circunferencia;
         document.getElementById("circunferencia").value = circunferencia;
     }
@@ -161,7 +161,7 @@ export function areaCirculo() {
 
     if (valida(raio) != true) {
         var area = Math.PI * raio * raio;
-        area = parseFloat(area.toFixed(2));
+        area = Math.abs(parseFloat(area.toFixed(2)));
         areaResult.innerHTML = area;
         document.getElementById("areaResult-mobile").value = area
     }
@@ -175,7 +175,7 @@ export function comprimentoArco() {
 
     if (valida(raio, angulo) != true) {
         var comprimento = 2 * Math.PI * raio * angulo / 360;
-        comprimento = parseFloat(comprimento.toFixed(2));
+        comprimento = Math.abs(parseFloat(comprimento.toFixed(2)));
         comprimentoResult.innerHTML = comprimento;
         document.getElementById("comprimento").value = comprimento;
     }

@@ -154,7 +154,7 @@ td { border: 2px solid; }
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-    height: 432px;
+    height: 464px;
     transition: height 0.87s ease, opacity 1.5s ease;
 }
 
