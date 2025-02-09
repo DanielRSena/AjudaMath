@@ -7,7 +7,7 @@ import objsExerciMath.temas.*;
 class ExerciMath {
     public static void main(String[] args) {
 
-        char menu = 's', repetir = 's';
+        char menu = 's', repetir;
         int pontos = 0, opcao = 0;
         Scanner entrada = new Scanner(System.in, "latin1");
         
@@ -16,7 +16,7 @@ class ExerciMath {
         
         while (menu == 's') {
 
-            System.out.println( "\n\n\t\t--- ExerciMath --- \n\nBem vindo à central de exercícios do AjudaMath! Escolha o assunto que deseja fazer exercícios:");
+            System.out.println( "\n\n\t\t--- ExerciMath --- \n\nBem vindo à central de exercícios do AjudaMath! \n\n\tPontos atuais: " + pontos + "\n\nEscolha o assunto que deseja fazer exercícios:");
             for(int i = 0; i < temas.length; i++) System.out.print("\n" + (i+1) + ". " + temas[i]); 
             System.out.print("\n\n");
 
@@ -28,6 +28,8 @@ class ExerciMath {
                     break;
                 } catch (InputMismatchException e) { entrada.nextLine(); } //limpa o buffer do Scanner se for letras ou símbolos
             }
+
+            repetir = 's';
                
             // Repetição
             while (repetir == 's') {

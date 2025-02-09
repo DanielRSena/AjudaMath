@@ -20,16 +20,16 @@ public class Tabuadas {
             try {
 
                 System.out.print("\n\t" + p1 + " x " + p2 + " = "); resposta = entrada.nextInt();
-                if (produto == resposta) Util.acerto(pontos);
+                if (produto == resposta) pontos = Util.acerto(pontos);
                 else {
                     System.out.println("\nA resposta certa é " + produto);
-                    Util.erro(pontos);
+                    pontos = Util.erro(pontos);
                 }
 
             } catch (InputMismatchException e) {
                 entrada.next();
                 System.out.println("\nA resposta certa é " + produto);
-                Util.erro(pontos);
+                pontos = Util.erro(pontos);
             }
         }
 

@@ -3,7 +3,7 @@
 #include <malloc.h>
 #include <math.h>
 
-//1.	Funções báscias do programa
+//1.	Funções básicas do programa
 
 char repetirProcesso(char descr[]) {
 	char vezes;
@@ -66,7 +66,7 @@ int agrDiscreto() {
 
 	nAmostras = pedirIntMin("\n\tQuantidade de amostras: ", 2);
 
-	// cria e preenche os vetores das amostras e fequências
+	// cria e preenche os vetores das amostras e frequências
 	float amostras[nAmostras], auxAmostras[nAmostras];
 	int frequencias[nAmostras];
 	for (int i = 0; i < nAmostras; i++) {
@@ -86,23 +86,46 @@ int agrDiscreto() {
 	}
 	media = arredondar(media / tFreq);
 
-	// variancia
+	// variância
 	for (int i = 0; i < nAmostras; i++) {
 		amostras[i] = round((pow((amostras[i] - media), 2) * frequencias[i]) * 100) / 100;
 		s2 += amostras[i];
 	}
 	s2 = s2 / (tFreq - 1);
 
-	desvioPadrao = arredondar(sqrt(s2)); // desvio padrao
+	desvioPadrao = arredondar(sqrt(s2)); // desvio padrão
 
-	CV = arredondar((100 * desvioPadrao) / media); // coeficiente de variacao
+	CV = arredondar((100 * desvioPadrao) / media); // coeficiente de variação
 
 	printf("\n\n\tMedia: %.2f\n\tVariancia: %.2f\n\tDesvio padrao: %.2f\n\tCoeficiente de variacao: %.2f%%", media, s2, desvioPadrao, CV);
 
 	return 0;
 }
 
-//2.2	Equação de 1º Grau
+//2.2 	Círculos
+int circulos() {
+
+	float raio, pi = 3.14159265;
+	int op;
+	raio = pedirFloatMin("\n\tRaio: ", 0);
+
+	printf("\n\tDigite a opcao desejada \n\n\t1. Area\n\t2. Circunferencia\n\t3. Comprimento do arco\n\n");
+	do {
+		printf("\tOpcao: ");
+		scanf("%d", &op);
+	} while (op < 1 || op > 3);
+
+	if(op == 1) printf("\n\tArea: %.2f", (pi * raio * raio));
+	else if(op == 2) printf("\n\tCircunferencia: %.2f", (2 * pi * raio));
+	else {
+		printf("\n");
+		float angulo = pedirFloatMin("\tDigite o angulo: ", 0);
+		printf("\n\tComprimento do arco: %.2f", (2 * 3.14 * raio * angulo / 360));
+	}
+	return 0;
+}
+
+//2.3	Equação de 1º Grau
 int equacao1grau() {
 
 	float a, b, igualdade;
@@ -126,7 +149,7 @@ int equacao1grau() {
 	return 0;
 }
 
-//2.3	Função de 2º Grau (Bhaskara)
+//2.4	Função de 2º Grau (Bhaskara)
 int equacao2grau() {
 	float a, b, c, igualdade, delta, x1, x2;
 
@@ -170,7 +193,7 @@ int equacao2grau() {
 	return 0;
 }
 
-//2.4	Operações com Matrizes (+, -, transposta e * por escalar)
+//2.5	Operações com Matrizes (+, -, transposta e * por escalar)
 int matriz() {
 
 	float escalar;
@@ -216,6 +239,7 @@ int matriz() {
 	return 0;
 }
 
+//2.6	Sistema Linear
 int sistemaLinear() {
 
 	float nx1 = 0, aux = 0, nx2 = 0, ny1 = 0, aux2 = 0, ny2 = 0, n1 = 0, n2 = 0, x = 0, y = 0;
@@ -251,6 +275,7 @@ int sistemaLinear() {
 	return 0;
 }
 
+//2.7	Tabuada
 int tabuada() {
 
 	int nTabuada, nMin, nMax;
