@@ -2,37 +2,42 @@
 <html lang="pt-br">
 
 <head>
+    <script> //Script para não dar flash na troca de tema
+        (function () {
+            const temaSalvo = localStorage.getItem('tema');
+            const temaEscuro = temaSalvo !== null
+                ? temaSalvo === 'dark'
+                : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', temaEscuro ? 'dark' : 'light');
+        })();
+    </script>
     <title>Equação 2° grau</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="arqs/style.css">
     <script type="module" src="arqs/programacao.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="arqs/imagens/favicon.ico" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <header></header>
-
-    <div class="conteudo centralizaTexto">
-
-        <div class="justificaTexto" id="fim"></div>
-
-        <h1>Equação de 2º grau</h1> <br><br>
-
-            <input type="text" class="caixaNum" id="var_a" placeholder="a"> x <sup>2</sup> + 
-            <input type="text" class="caixaNum" id="var_b" placeholder="b"> x + 
-            <input type="text" class="caixaNum" id="var_c" placeholder="c"> = 
-            <input type="text" class="caixaNum" id="igualdade" placeholder="0"> <br><br>
-
-        <input id="botao2grau" type="button" value="Finalizar">
-
-        <div id="resultado"></div>
-
-        <br><br> Não conseguiu chegar ao resultado? Vá para o conteúdo de <a href="matEqua2grau.html">equação de 2º grau (Bhaskara)</a> <br><br>
-
-    </div>
+    <main>
+        <header></header>
+        <div class="conteudo centralizaTexto">
+            <div class="justificaTexto" id="fim"></div>
+            <h1>Equação de 2º grau</h1> <br><br>
+                <input type="text" class="caixaNum" id="var_a" placeholder="a"> x <sup>2</sup> +
+                <input type="text" class="caixaNum" id="var_b" placeholder="b"> x +
+                <input type="text" class="caixaNum" id="var_c" placeholder="c"> =
+                <input type="text" class="caixaNum" id="igualdade" placeholder="0"> <br><br>
+            <input id="botao2grau" type="button" value="Finalizar">
+            <div id="resultado"></div>
+            <br><br> Não conseguiu chegar ao resultado? Vá para o conteúdo de <a href="matEqua2grau.html">equação de 2º grau (Bhaskara)</a> <br><br>
+        </div>
+    </main>
 
     <footer></footer>
 

@@ -1,0 +1,49 @@
+footer {
+    background: var(--degAzulAzul);
+    padding: 3rem 1rem 2rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.conteudoRodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.descricaoSistema p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+    max-width: 600px;
+    color: var(--texto);
+}
+
+.redesSociais {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.redesSociais a {
+    color: var(--laranjaClaro);
+    background: var(--azulMedio);
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    border: 1px solid var(--azulForte);
+}
+
+.redesSociais a:hover {
+    background: var(--laranjaClaro);
+    color: var(--azulMedio);
+    transform: scale(1.1);
+    border: none;
+}
+
+.copyright {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--textoSecundario);
+}

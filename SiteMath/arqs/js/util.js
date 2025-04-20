@@ -23,8 +23,7 @@ export function ola() {
 export function mostrarMenu() {
   const menuButton = document.getElementById("botaoMenu");
   const menu = document.getElementById("menu");
-  const nav = document.querySelector("nav"); // Seleciona o elemento <nav>
-
+  const nav = document.querySelector("header");
   menuButton.addEventListener("click", function () {
     menu.classList.toggle("hidden");
     menu.classList.toggle("visible");
@@ -46,4 +45,41 @@ export function deslizar() {
       });
     });
   });
+}
+
+export function aplicarTema(escuro) {
+  const html = document.documentElement;
+  
+  // Adiciona classe para evitar piscadas durante a troca
+  html.classList.add('no-transition');
+  
+  // Aplica o tema
+  localStorage.setItem('tema', escuro ? 'dark' : 'light');
+  html.setAttribute('data-theme', escuro ? 'dark' : 'light');
+  
+  // Atualiza ícone (se existir)
+  const icone = document.getElementById('iconeTema');
+  if (icone) {
+      icone.className = escuro ? 'bi bi-moon-fill' : 'bi bi-brightness-high-fill';
+      icone.classList.remove('rotate');
+      void icone.offsetWidth; // Força reflow
+      icone.classList.add('rotate');
+  }
+  
+  // Remove a classe após um pequeno delay
+  setTimeout(() => {
+      html.classList.remove('no-transition');
+  }, 10); // 10ms é suficiente para evitar conflitos
+}
+
+export function aplicarTemaInicial() {
+  // 1. Verifica se o usuário já fez uma escolha manual (salva no localStorage)
+  const temaSalvo = localStorage.getItem('tema');
+
+  // 2. Se não tiver escolha salva, aí usa o do sistema
+  const prefereEscuro = temaSalvo !== null
+    ? temaSalvo === 'dark' // Prioriza o que foi salvo
+    : window.matchMedia('(prefers-color-scheme: dark)').matches; // Fallback para o sistema
+
+  aplicarTema(prefereEscuro);
 }

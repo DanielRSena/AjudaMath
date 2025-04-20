@@ -2,77 +2,83 @@
 <html lang="pt-br">
 
 <head>
+    <script> //Script para não dar flash na troca de tema
+        (function () {
+            const temaSalvo = localStorage.getItem('tema');
+            const temaEscuro = temaSalvo !== null
+                ? temaSalvo === 'dark'
+                : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', temaEscuro ? 'dark' : 'light');
+        })();
+    </script>
     <title>SiteMath</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="arqs/style.css">
     <script type="module" src="arqs/programacao.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="arqs/imagens/favicon.ico" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <header></header>
-    
-    <div class="conteudo justificaTexto">
-
-        <div class="justificaTexto" id="fim"></div>
-
-        <h1> O que é o <em>SiteMath</em>?</h1> <br><br>
-
-        <!--Imagem responsiva-->
-        <div class="centralizaBloco">
-            <picture>
-                <source media="(max-width: 650px)" srcset="arqs/imagens/pEstudando300.jpg" type="image/jpeg">
-                <source media="(max-width: 1130px)" srcset="arqs/imagens/pEstudando600.jpg" type="image/jpeg">
-                <img src="arqs/imagens/pEstudando1000.jpg" alt="">
-            </picture>
+    <main>
+        <header></header>
+        
+        <div class="conteudo justificaTexto">
+            <div class="justificaTexto" id="fim"></div>
+            <h1> O que é o <em>SiteMath</em>?</h1> <br><br>
+            <!--Imagem responsiva-->
+            <div class="centralizaBloco">
+                <picture>
+                    <source media="(max-width: 650px)" srcset="arqs/imagens/pEstudando300.jpg" type="image/jpeg">
+                    <source media="(max-width: 1130px)" srcset="arqs/imagens/pEstudando600.jpg" type="image/jpeg">
+                    <img src="arqs/imagens/pEstudando1000.jpg" alt="">
+                </picture>
+            </div>
+            <br><br> O SiteMath é uma aplicação <em>web</em> que serve para unir algumas das contas e temas matemáticos que podem em algum momento fugir da mente. Então, serve tanto para alunos que querem a resposta de alguns exercícios, quanto para pessoas que desejam relembrar algo que tiveram na escola ou faculdade. <br><br>
+            E não acaba por aqui: esse <em>site</em> faz parte do <a href="#AjudaMath" class="section">AjudaMath</a>, um conjunto de softwares que desenvolvi com o mesmo objetivo, te ajudar com problemas matemáticos! Esse em especial, foi criado para exibir a parte teórica do que é visto no <a href="#RespondeMath" class="section">RespondeMath</a> e <a href="#ExerciMath" class="section">ExerciMath</a>, além de algumas ferramentas online, como <a href="ferEqua1grau.html">Função de 1º grau</a>, <a href="ferEqua2grau.html">Função de 2º grau</a> e <a href="ferSistemas.html">Sistemas  Lineares</a>. <br><br><br><br>
+            <h1 id="AjudaMath">O que é o AjudaMath?</h1> <br><br>
+            <!--Imagem responsiva-->
+            <div class="centralizaBloco">
+                <picture>
+                    <source media="(max-width: 650px)" srcset="arqs/imagens/ajudaMath300.jpg" type="image/jpeg">
+                    <source media="(max-width: 1130px)" srcset="arqs/imagens/ajudaMath600.jpg" type="image/jpeg">
+                    <img src="arqs/imagens/ajudaMath1000.jpg" alt="">
+                </picture>
+            </div>
+            <br><br> É, além de um Hobby meu, um conjunto de três softwares que geram conteúdo, resolução e criação de
+            exercícios matemáticos. Respectivamente, O SiteMath, RespondeMath e o ExerciMath são feitos com tecnologias
+            diferentes, todas que utilizo nos meus estudos. Eles são, então, além de uma forma de melhorar minhas
+            habilidades, uma maneira de ajudar as pessoas que podem precisar alguma hora. <br><br>
+            Quer visitar o repositório no Github que mantém todos os softwares (inclusive os desse <em>site</em>)? <a href="https://github.com/DanielRSena/AjudaMath" target="_blank">Vamos lá!</a> <br><br>
+            <h4>E de onde vem esse Math que está em todo lugar? </h4>
+            Simples: Matemática! Em inglês, de forma mais
+            específica. <br><br>
+            Dito isso, quero que conheça e, se possível, sugira melhorias para esse conjunto de ajudantes matemáticos. Mas
+            antes disso, fica aqui uma descrição de cada um deles: <br><br><br>
+            <h2 id="ExerciMath">ExerciMath: o criador de exercícios</h2>
+            <br>Esse executável feito em Java serve para você que quer testar suas habilidades matemáticas, pois conforme
+            responde as questões fornecidas, ganhará pontos que são acumulados. Vale lembrar que vem
+            com temas além dos abordados no SiteMath. Em breve, estará disponível o arquivo executável.
+            <br><br>
+            <h2 id="RespondeMath">RespondeMath: o guru da matemática</h2>
+            <br>Esse executável feito em linguagem C serve para você que tem questões matemáticas que precisam ser
+            respondidas. Além de contar com as mesmas ferramentas que esse <em>site</em>, ele tem temas extras, como as
+            tabuadas e agrupamento discreto! <br><br>
+            Faça o download do executável dele aqui: <a href="../RespondeMath/output/RespondeMath.exe">RespondeMath.exe</a> <br><br>
         </div>
-
-        <br><br> O SiteMath é uma aplicação <em>web</em> que serve para unir algumas das contas e temas matemáticos que podem em algum momento fugir da mente. Então, serve tanto para alunos que querem a resposta de alguns exercícios, quanto para pessoas que desejam relembrar algo que tiveram na escola ou faculdade. <br><br>
-
-        E não acaba por aqui: esse <em>site</em> faz parte do <a href="#AjudaMath" class="section">AjudaMath</a>, um conjunto de softwares que desenvolvi com o mesmo objetivo, te ajudar com problemas matemáticos! Esse em especial, foi criado para exibir a parte teórica do que é visto no <a href="#RespondeMath" class="section">RespondeMath</a> e <a href="#ExerciMath" class="section">ExerciMath</a>, além de algumas ferramentas online, como <a href="ferEqua1grau.html">Função de 1º grau</a>, <a href="ferEqua2grau.html">Função de 2º grau</a> e <a href="ferSistemas.html">Sistemas  Lineares</a>. <br><br><br><br>
-
-        <h1 id="AjudaMath">O que é o AjudaMath?</h1> <br><br>
-        <!--Imagem responsiva-->
-        <div class="centralizaBloco">
-            <picture>
-                <source media="(max-width: 650px)" srcset="arqs/imagens/ajudaMath300.jpg" type="image/jpeg">
-                <source media="(max-width: 1130px)" srcset="arqs/imagens/ajudaMath600.jpg" type="image/jpeg">
-                <img src="arqs/imagens/ajudaMath1000.jpg" alt="">
-            </picture>
-        </div>
-
-        <br><br> É, além de um Hobby meu, um conjunto de três softwares que geram conteúdo, resolução e criação de
-        exercícios matemáticos. Respectivamente, O SiteMath, RespondeMath e o ExerciMath são feitos com tecnologias
-        diferentes, todas que utilizo nos meus estudos. Eles são, então, além de uma forma de melhorar minhas
-        habilidades, uma maneira de ajudar as pessoas que podem precisar alguma hora. <br><br>
-
-        Quer visitar o repositório no Github que mantém todos os softwares (inclusive os desse <em>site</em>)? <a href="https://github.com/DanielRSena/AjudaMath" target="_blank">Vamos lá!</a> <br><br>
-
-        <h4>E de onde vem esse Math que está em todo lugar? </h4>
-        Simples: Matemática! Em inglês, de forma mais
-        específica. <br><br>
-
-        Dito isso, quero que conheça e, se possível, sugira melhorias para esse conjunto de ajudantes matemáticos. Mas
-        antes disso, fica aqui uma descrição de cada um deles: <br><br><br>
-
-        <h2 id="ExerciMath">ExerciMath: o criador de exercícios</h2>
-        <br>Esse executável feito em Java serve para você que quer testar suas habilidades matemáticas, pois conforme
-        responde as questões fornecidas, ganhará pontos que são acumulados. Vale lembrar que vem
-        com temas além dos abordados no SiteMath. Em breve, estará disponível o arquivo executável.
 
         <br><br>
-
-        <h2 id="RespondeMath">RespondeMath: o guru da matemática</h2>
-        <br>Esse executável feito em linguagem C serve para você que tem questões matemáticas que precisam ser
-        respondidas. Além de contar com as mesmas ferramentas que esse <em>site</em>, ele tem temas extras, como as
-        tabuadas e agrupamento discreto! <br><br>
-
-        Faça o download do executável dele aqui: <a href="../RespondeMath/output/RespondeMath.exe">RespondeMath.exe</a> <br><br>
-
-    </div>
+        
+    </main>
 
     <footer></footer>
 

@@ -1,17 +1,45 @@
-import { includeHTML, ola, deslizar, mostrarMenu } from "./js/util.js"
+import { includeHTML, ola, deslizar, mostrarMenu, aplicarTema, aplicarTemaInicial } from "./js/util.js"
 import { equacao1Grau, equacao2Grau, sistemasLineares, vMedia, circunferencia, areaCirculo, comprimentoArco } from "./js/contas.js";
 
 ola();
 
 includeHTML('header', './arqs/htmls/menu.html').then(() => {
-    const botao = document.getElementById('botaoMenu'); // Agora o botão já existe no DOM
-    if (botao) mostrarMenu();
-    else console.error('Botão #botaoMenu não encontrado no DOM.');
+  const botao = document.getElementById('botaoMenu');
+  if (botao) mostrarMenu();
+
+  aplicarTemaInicial(); // Carrega o tema salvo ou do sistema
+
+  const toggleTema = document.getElementById('toggleTema');
+  toggleTema.addEventListener('click', () => {
+    const temaAtual = document.documentElement.getAttribute('data-theme');
+    const escuro = temaAtual !== 'dark'; // Inverte o tema atual
+    aplicarTema(escuro);
+  });
 });
 
 includeHTML("footer", "./arqs/htmls/rodape.html");
 
 deslizar();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    let ultimoScroll = 0;
+    const navbar = document.querySelector('header');
+
+    if (!navbar) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollAtual = window.scrollY;
+
+        if (scrollAtual > ultimoScroll) {
+            navbar.classList.add('menuPrincipal-escondido');
+        } else {
+            navbar.classList.remove('menuPrincipal-escondido');
+        }
+
+        ultimoScroll = scrollAtual;
+    });
+});
 
 const botao1Grau = document.getElementById('botao1grau');
 if (botao1Grau) botao1Grau.addEventListener('click', equacao1Grau);

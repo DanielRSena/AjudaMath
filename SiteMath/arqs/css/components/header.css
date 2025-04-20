@@ -1,0 +1,124 @@
+header {
+    position: fixed;
+    margin-bottom: 60px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    background-image: var(--degAzulAzul);
+    border-bottom: 1px solid var(--borda);
+    padding-top: 25px;
+    padding-bottom: 15px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+header.open {
+    opacity: 1;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.iconResponsivo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 100px;
+    margin-left: 5%;
+}
+
+/* Serve para ocultar o menu quando rolar para baixo*/
+.menuPrincipal-escondido {
+    top: -150px;
+}
+
+#toggleTema {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#iconeTema {
+    font-size: 24px;
+    color: var(--corIcone);
+    transition: color 0.3s ease;
+    display: inline-block;
+    /* Isso é crucial para animações de transform */
+}
+
+.rotate {
+    animation: rotate 0.5s ease 1;
+    display: inline-block;
+}
+
+/* Definição da animação de rotação */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#botaoMenu {
+    background: transparent;
+    color: var(--corIcone);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+#botaoMenu.open {
+    transform: rotate(180deg);
+}
+
+.menuResponsivo {
+    visibility: hidden;
+    opacity: 0.8;
+    transform: translateY(-30px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 0;
+    text-align: left;
+    padding: 10px 15px;
+    margin-left: 3%;
+    transition: height 0.87s ease, opacity 1.5s ease;
+}
+
+.menuResponsivo a {
+    padding: 5px 0;
+    display: block;
+}
+
+.menuResponsivo.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    height: 464px;
+    transition: height 0.87s ease, opacity 1.5s ease;
+}
+
+.menuResponsivo.hidden {
+    visibility: hidden;
+    opacity: 0.1;
+    transform: translateY(-30px);
+}

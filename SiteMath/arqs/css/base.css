@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, html body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    font-size: 16px;
+    line-height: 1.6;
+    background-image: var(--degAzulBranco);
+    min-height: 100vh;
+    flex-direction: column;
+    color: var(--texto);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--laranjaEscuro);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, .centralizaTexto { 
+    text-align: center; 
+}
+
+a {
+    text-decoration: none;
+    color: var(--azulForte);
+    transition: color 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+abbr {
+    cursor: help;
+    text-decoration: none;
+    color: var(--textoSecundario);
+}
+
+a:hover {
+    color: var(--laranjaEscuro);
+}

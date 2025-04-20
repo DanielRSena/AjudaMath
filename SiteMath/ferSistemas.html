@@ -2,43 +2,53 @@
 <html lang="pt-br">
 
 <head>
+    <script> //Script para não dar flash na troca de tema
+        (function () {
+            const temaSalvo = localStorage.getItem('tema');
+            const temaEscuro = temaSalvo !== null
+                ? temaSalvo === 'dark'
+                : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', temaEscuro ? 'dark' : 'light');
+        })();
+    </script>
     <title>Sistemas Lineares</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="arqs/style.css">
     <script type="module" src="arqs/programacao.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="arqs/imagens/favicon.ico" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <header></header>
-
-    <div class="conteudo centralizaTexto">
+    <main>
+        <header></header>
+        <div class="conteudo centralizaTexto">
         
-        <div class="justificaTexto" id="fim"></div>
-
-        <h1>Sistemas Lineares</h1> <br><br>
-
-        Coloque os dois sistemas: <br><br>
-
-        <strong>Sistema 1: </strong> <input type="text" class="caixaNum" id="nx_1">x +
-        <input type="text" class="caixaNum" id="ny_1">y =
-        <input type="text" class="caixaNum" id="n_1"> <br>
-
-        <strong>Sistema 2: </strong>
-        <input type="text" class="caixaNum" id="nx_2">x +
-        <input type="text" class="caixaNum" id="ny_2">y = 
-        <input type="text" class="caixaNum" id="n_2"> <br><br>
-
-        <input id="botaoSistemas" type="button" value="Finalizar">
-
-        <div id="sistemas"></div> <br><br> 
+            <div class="justificaTexto" id="fim"></div>
+            <h1>Sistemas Lineares</h1> <br><br>
+            Coloque os dois sistemas: <br><br>
+            <strong>Sistema 1: </strong> <input type="text" class="caixaNum" id="nx_1">x +
+            <input type="text" class="caixaNum" id="ny_1">y =
+            <input type="text" class="caixaNum" id="n_1"> <br>
+            <strong>Sistema 2: </strong>
+            <input type="text" class="caixaNum" id="nx_2">x +
+            <input type="text" class="caixaNum" id="ny_2">y =
+            <input type="text" class="caixaNum" id="n_2"> <br><br>
+            <input id="botaoSistemas" type="button" value="Finalizar">
+            <div id="sistemas"></div> <br><br>
         
-        Não conseguiu chegar ao resultado? Vá para o conteúdo de <a href="matSistemas.html">sistemas lineares</a> <br><br>
-
-    </div>
+            Não conseguiu chegar ao resultado? Vá para o conteúdo de <a href="matSistemas.html">sistemas lineares</a> <br><br>
+        </div>
+    </main>
 
     <footer></footer>
 

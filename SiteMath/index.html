@@ -2,131 +2,145 @@
 <html lang="pt-br">
 
 <head>
+    <script> //Script para não dar flash na troca de tema
+        (function () {
+            const temaSalvo = localStorage.getItem('tema');
+            const temaEscuro = temaSalvo !== null
+                ? temaSalvo === 'dark'
+                : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', temaEscuro ? 'dark' : 'light');
+        })();
+    </script>
     <title>Home</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="arqs/style.css">
     <script type="module" src="arqs/programacao.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="arqs/imagens/favicon.ico" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <header></header>
+    <main>
+        <header></header>
+        <div class="conteudo justificaTexto">
+            <div class="justificaTexto" id="fim"></div>
+            <hr>
+            <h1> Atualizações do SiteMath &#x1f4da; </h1>
+            <HR><br>
+            <!--Atualizações-->
+            <br><br>
 
-    <div class="conteudo justificaTexto">
+            <ol>
 
-        <div class="justificaTexto" id="fim"></div>
+                <!--20/04/2025-->
+                <strong>Dia 20/04/2025: </strong> Layout refatorado <br><br>
+                <ul>
+                    <li> Modo claro e escuro adicionados </li> <br>
+                    <li> Para facilitar a leitura, o menu desaparece ao rolar a tela para baixo, mas retorna ao topo ao rolar para cima </li> <br>
+                    <li> Rodapé reformulado </li><br><br>
+                </ul>
 
-        <hr>
+                <!--01/02/2025-->
+                <strong>Dia 01/02/2025: </strong> Material de Velocidade Média adicionado <br><br><br>
 
-        <h1> Atualizações do SiteMath &#x1f4da; </h1>
+                <!--25/01/2025-->
+                <strong>Dia 25/01/2025: Trio dos círculos</strong> <br><br>
+                <ul>
+                    <li> Ferramenta de circunferência, area do circulo e comprimento do arco adicionadas </li> <br>
+                    <li> Adicionados placeholders (dicas) nas caixas de texto de algumas ferramentas </li> <br>
+                    <li> Mensagem de boas vindas foi deslocada um pouco para cima </li><br>
+                    <li> Alguns erros de digitação foram corrigidos </li> <br><br>
+                </ul>
 
-        <HR><br>
+                <!--18/01/2025-->
+                <strong>Dia 18/01/2025: Melhorias na formatação</strong> <br><br>
+                <ul>
+                    <li> O menu foi reformulado para melhor design e organização </li> <br>
+                    <li> As atualizações do SiteMath foram subidas para o topo </li> <br><br>
+                </ul>
 
-        <!--Atualizações-->
+                <!--13/01/2025-->
+                <strong>Dia 13/01/2025:</strong> Ferramenta de velocidade média adicionada <br><br><br>
 
+                <!--12/01/2025-->
+                <strong>Dia 12/01/2025: Melhorias na organização de códigos</strong> <br><br>
+                <ul>
+                    <li> Os códigos JS foram separados para melhor organização e entendimento </li> <br>
+                    <li> As margens das páginas foram aumentadas para melhor visualização do conteúdo </li> <br><br>
+                </ul>
+
+                <!--30/01/2025-->
+                <strong>Dia 30/01/2024: SiteMath no ar!</strong> <br><br>
+                <ul>
+                    <li> Agora o SiteMath pode ser acessado de qualquer dispositivo </li> <br>
+                    <li> Alterações no layout para melhor visualização do conteúdo </li> <br><br>
+                </ul>
+
+                <!--17/01/2024-->
+                <strong>Dia 17/01/2024: Tratamento de erros</strong> <br><br>
+                <ul>
+                    <li>
+                        Antes, caso os valores digitados nas ferramentas matemáticas não fossem números, o retorno
+                        sairia
+                        errado, ou até mesmo com sua resposta comprometida. Agora, uma mensagem será emitida nesses
+                        contextos, a fim de consertar a entrada de dados e prosseguir com a conta.
+                    </li> <br><br>
+                </ul>
+
+                <!--31/12/2023-->
+                <strong>Dezembro de 2023: Especial de fim de ano</strong> <br><br>
+                <ul>
+                    <li>Site totalmente responsivo;</li> <br>
+                    <li>Adição do conteúdo e ferramenta de sistemas lineares; </li> <br>
+                    <li><strong>Aba SiteMath:</strong> programas .exe incluídos para download, além de sua remodelação;
+                    </li> <br>
+                    <li>Rodapé adicionado</li><br><br>
+                </ul>
+
+                <!--03/10/2023-->
+                <strong>Dia 03/10/2023: Criação da barra de navegação</strong> <br><br>
+                <ul>
+                    <li>Implementação nas abas;</li> <br>
+                    <li>Adição do conteúdo de função de 1º grau;</li> <br>
+                    <li>Adição da mensagem de entrada no <em>site</em>.</li> <br><br>
+                </ul>
+
+                <!--21/09/2023-->
+                <strong>Dia 21/09/2023: Organização do SiteMath</strong> <br><br>
+                <ul>
+                    <li>Criação de páginas para cada material, ferramentas e afins; </li> <br>
+                    <li>Incrementação da ferramenta do 1º e 2º grau.</li> <br><br>
+                </ul>
+
+                <!--16/07/2023-->
+                <strong> Dia 16/07/2023: Criação de links &#x1f517</strong><br><br>
+                <ul>
+                    <li>Links da equação 1º e 2º grau;</li><br>
+                    <li>Link de perfil adicionado;</li><br>
+                    <li>Link dos repositórios adicionado.</li><br><br>
+                </ul>
+
+                <!--13/07/2023-->
+                <strong>Dia 13/07/2023: Conteúdos adicionados</strong> <br><br>
+                <ul>
+                    <li>Imagens adicionadas;</li><br>
+                    <li>Ícone da aba do navegador adicionado;</li><br><br>
+                </ul>
+
+                <!--12/07/2023-->
+                <strong>Dia 12/07/2023: Criação do SiteMath</strong><br><br>
+                <ul>
+                    <li>Alguns designs para deixar mais apresentável;</li><br>
+                    <li>Emojis das atualizações e do próprio SiteMath inicial adicionados.</li><br><br>
+                </ul>
+            </ol>
+        </div>
         <br><br>
-
-        <ol>
-
-            <!--01/02/2025-->
-            <strong>Dia 01/02/2025: </strong> Material de Velocidade Média adicionado <br><br><br>
-
-            <!--25/01/2025-->
-            <strong>Dia 25/01/2025: Trio dos círculos</strong> <br><br>
-            <ul>
-                <li> Ferramenta de circunferência, area do circulo e comprimento do arco adicionadas </li> <br>
-                <li> Adicionados placeholders (dicas) nas caixas de texto de algumas ferramentas </li> <br>
-                <li> Mensagem de boas vindas foi deslocada um pouco para cima </li><br>
-                <li> Alguns erros de digitação foram corrigidos </li> <br><br>
-            </ul>
-
-            <!--18/01/2025-->
-            <strong>Dia 18/01/2025: Melhorias na formatação</strong> <br><br>
-            <ul>
-                <li> O menu foi reformulado para melhor design e organização </li> <br>
-                <li> As atualizações do SiteMath foram subidas para o topo </li> <br><br>
-            </ul>
-
-            <!--13/01/2025-->
-            <strong>Dia 13/01/2025:</strong> Ferramenta de velocidade média adicionada <br><br><br>
-
-            <!--12/01/2025-->
-            <strong>Dia 12/01/2025: Melhorias na organização de códigos</strong> <br><br>
-            <ul>
-                <li> Os códigos JS foram separados para melhor organização e entendimento </li> <br>
-                <li> As margens das páginas foram aumentadas para melhor visualização do conteúdo </li> <br><br>
-            </ul>
-
-            <!--30/01/2025-->
-            <strong>Dia 30/01/2024: SiteMath no ar!</strong> <br><br>
-            <ul>
-                <li> Agora o SiteMath pode ser acessado de qualquer dispositivo </li> <br> 
-                <li> Alterações no layout para melhor visualização do conteúdo </li> <br><br>
-            </ul>
-
-            <!--17/01/2024-->
-            <strong>Dia 17/01/2024: Tratamento de erros</strong> <br><br>
-            <ul>
-                <li>
-                    Antes, caso os valores digitados nas ferramentas matemáticas não fossem números, o retorno sairia
-                    errado, ou até mesmo com sua resposta comprometida. Agora, uma mensagem será emitida nesses
-                    contextos, a fim de consertar a entrada de dados e prosseguir com a conta.
-                </li> <br><br>
-            </ul>
-
-            <!--31/12/2023-->
-            <strong>Dezembro de 2023: Especial de fim de ano</strong> <br><br>
-            <ul>
-                <li>Site totalmente responsivo;</li> <br>
-                <li>Adição do conteúdo e ferramenta de sistemas lineares; </li> <br>
-                <li><strong>Aba SiteMath:</strong> programas .exe incluídos para download, além de sua remodelação;</li> <br>
-                <li>Rodapé adicionado</li><br><br>
-            </ul>
-
-            <!--03/10/2023-->
-            <strong>Dia 03/10/2023: Criação da barra de navegação</strong> <br><br>
-            <ul>
-                <li>Implementação nas abas;</li> <br>
-                <li>Adição do conteúdo de função de 1º grau;</li> <br>
-                <li>Adição da mensagem de entrada no <em>site</em>.</li> <br><br>
-            </ul>
-
-            <!--21/09/2023-->
-            <strong>Dia 21/09/2023: Organização do SiteMath</strong> <br><br>
-            <ul>
-                <li>Criação de páginas para cada material, ferramentas e afins; </li> <br>
-                <li>Incrementação da ferramenta do 1º e 2º grau.</li> <br><br>
-            </ul>
-
-            <!--16/07/2023-->
-            <strong> Dia 16/07/2023: Criação de links &#x1f517</strong><br><br>
-            <ul>
-                <li>Links da equação 1º e 2º grau;</li><br>
-                <li>Link de perfil adicionado;</li><br>
-                <li>Link dos repositórios adicionado.</li><br><br>
-            </ul>
-
-            <!--13/07/2023-->
-            <strong>Dia 13/07/2023: Conteúdos adicionados</strong> <br><br>
-            <ul>
-                <li>Imagens adicionadas;</li><br>
-                <li>Ícone da aba do navegador adicionado;</li><br><br>
-            </ul>
-
-            <!--12/07/2023-->
-            <strong>Dia 12/07/2023: Criação do SiteMath</strong><br><br>
-            <ul>
-                <li>Alguns designs para deixar mais apresentável;</li><br>
-                <li>Emojis das atualizações e do próprio SiteMath inicial adicionados.</li><br><br>
-            </ul>
-
-        </ol>
-    </div>
-
-    <br><br>
+    </main>
 
     <footer></footer>
 

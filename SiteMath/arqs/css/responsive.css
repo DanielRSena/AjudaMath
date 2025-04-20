@@ -1,0 +1,84 @@
+@media (min-width: 666px) {
+    .menuResponsivo {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-left: 7%;
+        visibility: hidden;
+        opacity: 0;
+        flex-direction: column;
+    }
+
+    .menuResponsivo.visible {
+        height: 232px;
+    }
+
+    #botaoMenu {
+        display: block;
+    }
+}
+
+@media (min-width: 725px) {
+    .contaCirculos span {
+        display: block;
+    }
+
+    .contaCirculos {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2%;
+    }
+
+    .tab-content .vMedia {
+        display: none;
+    }
+
+    .caixaNum {
+        width: 60px;
+    }
+}
+
+@media (min-width: 768px) {
+    .conteudoRodape {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .logo,
+    .descricaoSistema,
+    .redesSociais {
+        flex: 1;
+    }
+
+    .descricaoSistema {
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: flex-start;
+    }
+
+    .redesSociais {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 476px) {
+    .iconResponsivo {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 725px) {
+    .tabs {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 5px;
+    }
+}

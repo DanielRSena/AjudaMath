@@ -1,0 +1,10 @@
+main {
+    flex: 1;
+}
+
+.conteudo {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 150px; /* Serve para dar espaçamento no topo da página, assim o menu não cobre o conteúdo */
+    font-size: large;
+}

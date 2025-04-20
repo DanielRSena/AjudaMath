@@ -2,78 +2,76 @@
 <html lang="pt-br">
 
 <head>
+    <script> //Script para não dar flash na troca de tema
+        (function () {
+            const temaSalvo = localStorage.getItem('tema');
+            const temaEscuro = temaSalvo !== null
+                ? temaSalvo === 'dark'
+                : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', temaEscuro ? 'dark' : 'light');
+        })();
+    </script>
     <title>Velocidade Média</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="arqs/style.css">
     <script type="module" src="arqs/programacao.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="arqs/imagens/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
         rel="stylesheet">
 </head>
 
 <body>
 
-    <header></header>
-
-    <div class="conteudo justificaTexto">
-
-        <div class="justificaTexto" id="fim"></div>
-
-        <h1>Velocidade Média</h1> <br><br>
-
-        <h2>Antes de tudo, o que é uma velocidade média?</h2> <br>
-
-        Basicamente, é a rapidez que um objeto se desloca em determinado tempo. Ela é calculada
-        pela distância percorrida dividida pelo tempo gasto. Sua fórmula básica é: <br><br>
-
-        <div class="centralizaBloco"> <strong>Vm</strong> &nbsp; = d / t</div> <br><br>
-
-        Onde <br><br>
-
-        <strong>Vm</strong> = velocidade média <br>
-        <strong>d</strong> = distância percorrida/deslocamento. Pode ser representada também por <strong>s</strong>, <strong>&Delta;s</strong> ou <strong>&Delta;d</strong> <br> 
-        <strong>t</strong> = tempo gasto no deslocamento, que pode ser representado por <strong>&Delta;t</strong> <br><br>
-
-        <strong>Obs.</strong> O &Delta; é um símbolo que representa a variação de uma grandeza, ou seja, a diferença entre dois valores. Nesse caso poderia ser a diferença entre o tempo final e o tempo inicial. <br><br>
-
-        <h2>Como resolver</h2> <br>
+    <main>
+        <header></header>
+        <div class="conteudo justificaTexto">
+            <div class="justificaTexto" id="fim"></div>
+            <h1>Velocidade Média</h1> <br><br>
+            <h2>Antes de tudo, o que é uma velocidade média?</h2> <br>
+            Basicamente, é a rapidez que um objeto se desloca em determinado tempo. Ela é calculada
+            pela distância percorrida dividida pelo tempo gasto. Sua fórmula básica é: <br><br>
+            <div class="centralizaBloco"> <strong>Vm</strong> &nbsp; = d / t</div> <br><br>
+            Onde <br><br>
+            <strong>Vm</strong> = velocidade média <br>
+            <strong>d</strong> = distância percorrida/deslocamento. Pode ser representada também por <strong>s</strong>, <strong>&Delta;s</strong> ou <strong>&Delta;d</strong> <br>
+            <strong>t</strong> = tempo gasto no deslocamento, que pode ser representado por <strong>&Delta;t</strong> <br><br>
+            <strong>Obs.</strong> O &Delta; é um símbolo que representa a variação de uma grandeza, ou seja, a diferença entre dois valores. Nesse caso poderia ser a diferença entre o tempo final e o tempo inicial. <br><br>
+            <h2>Como resolver</h2> <br>
         
-        Vamos supor que um caminhoneiro quer saber qual a sua velocidade média se ele percorrer 100 km em 2 horas. Assim: <br><br>
-
-        <div class="centralizaBloco">
-            <code>
-                <strong>Distância:</strong> 100 km <br>
-                <strong>Tempo:</strong> 2 horas <br>
-                <strong>Velocidade Média:</strong> ?
-            </code>
-        </div> <br><br>
+            Vamos supor que um caminhoneiro quer saber qual a sua velocidade média se ele percorrer 100 km em 2 horas. Assim: <br><br>
+            <div class="centralizaBloco">
+                <code>
+                    <strong>Distância:</strong> 100 km <br>
+                    <strong>Tempo:</strong> 2 horas <br>
+                    <strong>Velocidade Média:</strong> ?
+                </code>
+            </div> <br><br>
         
-        Com esses dados, concluímos que: <br><br>
-
-        <div class="centralizaBloco">
-            <code>
-                <strong>Vm</strong> = d/t <br>
-                <strong>Vm</strong> = 100/2 <br>
-                <strong>Vm</strong> = 50 km/h <br>
-            </code>
-        </div> <br><br>
-
-        Portanto, a velocidade média que ele precisa para percorrer 100 km em 2 horas é de 50 km/h. <br><br>
+            Com esses dados, concluímos que: <br><br>
+            <div class="centralizaBloco">
+                <code>
+                    <strong>Vm</strong> = d/t <br>
+                    <strong>Vm</strong> = 100/2 <br>
+                    <strong>Vm</strong> = 50 km/h <br>
+                </code>
+            </div> <br><br>
+            Portanto, a velocidade média que ele precisa para percorrer 100 km em 2 horas é de 50 km/h. <br><br>
         
-        <h2>Importante</h2> <br>
-
-        A velocidade média não considera variações de velocidade ao longo do trajeto. Isso significa que, mesmo que a média dele é 50 km/h, não significa que ele estava nessa velocidade o tempo todo. Se quiséssemos esses dados, seria necessário calcular a velocidade instantânea em diferentes pontos do trajeto ou utilizar uma fórmula mais complexa, como a do movimento uniformemente relativo/variado. <br><br>
-
-        Outra coisa importante é que a velocidade não possui direção e sentido, então sempre tem um valor positivo. <br><br>        
-
-        Por fim, devemos nos atentar para a unidade de medida. No exemplo acima, a unidade da distância é km e a do tempo é horas, e por isso que a velocidade média está em km/h. A outra forma aceita pelo SI, cujo assunto será integrado em breve, é metros por segundo, ou m/s. Então, caso o exercício desse 10 km e e 2 minutos, deveríamos converter para uma das duas unidades de medida antes de resolver. <br><br>
-
-        Quer usar a ferramenta que resolve esses exercícios? Vá para o solucionador de <a href="ferVMedia.html">Velocidade Média</a>!
-
-    </div>
-
-    <br><br>
+            <h2>Importante</h2> <br>
+            A velocidade média não considera variações de velocidade ao longo do trajeto. Isso significa que, mesmo que a média dele é 50 km/h, não significa que ele estava nessa velocidade o tempo todo. Se quiséssemos esses dados, seria necessário calcular a velocidade instantânea em diferentes pontos do trajeto ou utilizar uma fórmula mais complexa, como a do movimento uniformemente relativo/variado. <br><br>
+            Outra coisa importante é que a velocidade não possui direção e sentido, então sempre tem um valor positivo. <br><br>
+            Por fim, devemos nos atentar para a unidade de medida. No exemplo acima, a unidade da distância é km e a do tempo é horas, e por isso que a velocidade média está em km/h. A outra forma aceita pelo SI, cujo assunto será integrado em breve, é metros por segundo, ou m/s. Então, caso o exercício desse 10 km e e 2 minutos, deveríamos converter para uma das duas unidades de medida antes de resolver. <br><br>
+            Quer usar a ferramenta que resolve esses exercícios? Vá para o solucionador de <a href="ferVMedia.html">Velocidade Média</a>!
+        </div>
+        <br><br>
+    </main>
 
     <footer></footer>
 

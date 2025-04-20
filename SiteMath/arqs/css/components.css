@@ -1,0 +1,117 @@
+#logo a {
+    display: flex;
+    align-items: center;
+    justify-items: space-between;
+    gap: 10px;
+}
+
+#logo a span {
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--azulForte);
+    font-size: 28px;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: #fb923c;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.caixaNum {
+    width: 40px;
+}
+
+.centralizaBloco {
+    display: flex;
+    justify-content: center;
+}
+
+.vMedia {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    border: 2px solid var(--azulClaro);
+    background-color: var(--azulClaro);
+    font-weight: bold;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.tab:hover, .tab.active {
+    border-color: var(--laranjaEscuro);
+    color: #fff;
+}
+
+.tab.active {
+    background-color: var(--laranjaClaro);
+}
+
+.tab:hover {
+    background-color: var(--laranjaEscuro);
+}
+
+.tab-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.tab-contents {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%;
+}
+
+.tab-content {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tab-content h2 {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.contaCirculos {
+    display: none;
+}
+
+.contaCirculos span {
+    display: none;
+}
+
+.justificaTexto {
+    text-align: justify;
+}
+
+input[type="button"] {
+    cursor: pointer;
+    background-color: var(--laranjaEscuro);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}

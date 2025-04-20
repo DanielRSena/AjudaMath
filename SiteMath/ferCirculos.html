@@ -2,41 +2,45 @@
 <html lang="pt-br">
 
 <head>
+    <script> //Script para não dar flash na troca de tema
+        (function () {
+            const temaSalvo = localStorage.getItem('tema');
+            const temaEscuro = temaSalvo !== null
+                ? temaSalvo === 'dark'
+                : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', temaEscuro ? 'dark' : 'light');
+        })();
+    </script>
     <title>Operações com Círculos</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="arqs/style.css">
     <script type="module" src="arqs/programacao.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="arqs/imagens/favicon.ico" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <header></header>
-
-    <div class="conteudo centralizaTexto">
-
-        <div class="justificaTexto" id="fim"></div>
-
-        <h1>Operações com Círculos</h1> <br>
-
-        <div class="tabs">
-            <div class="tab active" onclick="showContent(0)">Cálculo da Circunferência</div>
-            <div class="tab" onclick="showContent(1)">Cálculo da Área</div>
-            <div class="tab" onclick="showContent(2)">Comprimento do Arco</div>
-        </div>
-
-        <div class="tab-container">
-            <div class="tab-contents" id="tab-contents">
-
-                <!-- Circunferência -->
-                <div class="tab-content">
-
-                    <h2>Cálculo da Circunferência</h2>
-
-                    <p>Fórmula: <strong>Circunferência = 2πr</strong>, onde <em>r</em> é o raio do círculo.</p> <br><br>
-
+    <main>
+        <header></header>
+        <div class="conteudo centralizaTexto">
+            <div class="justificaTexto" id="fim"></div>
+            <h1>Operações com Círculos</h1> <br>
+            <div class="tabs">
+                <div class="tab active" onclick="showContent(0)">Cálculo da Circunferência</div>
+                <div class="tab" onclick="showContent(1)">Cálculo da Área</div>
+                <div class="tab" onclick="showContent(2)">Comprimento do Arco</div>
+            </div>
+            <div class="tab-container">
+                <div class="tab-contents" id="tab-contents">
+                    <!-- Circunferência -->
+                    <div class="tab-content">
+                        <h2>Cálculo da Circunferência</h2>
+                        <p>Fórmula: <strong>Circunferência = 2πr</strong>, onde <em>r</em> é o raio do círculo.</p>
+                        <br><br>
                         <div class="contaCirculos">
                             <span>2</span>
                             <span>*</span>
@@ -50,7 +54,6 @@
                                 <p id="circunferenciaResult">?</p>
                             </div>
                         </div>
-
                         <div class="centralizaBloco">
                             <div class="vMedia">
                                 <span> Raio: <input type="text" class="caixaNum" id="raio-mobile"> </span> <br>
@@ -58,105 +61,87 @@
                                 </span>
                             </div>
                         </div>
-                    <br><br>
-
-                    <input id="botaoCircunferencia" type="button" value="Calcular">
-
+                        <br><br>
+                        <input id="botaoCircunferencia" type="button" value="Calcular">
+                    </div>
+                    <!-- Área -->
+                    <div class="tab-content">
+                        <h2>Cálculo da Área</h2>
+                        <p>Fórmula: <strong>Área = πr²</strong>, onde <em>r</em> é o raio do círculo.</p> <br><br>
+                        <div class="contaCirculos">
+                            <span>π</span>
+                            <span>*</span>
+                            <div class="centralizaTexto">
+                                <input type="text" class="caixaNum inputCirculos" id="raioArea-desktop"
+                                    placeholder="raio"> <sup>2</sub> <br>
+                            </div>
+                            <span>&nbsp; = &nbsp;</span>
+                            <div class="centralizaTexto">
+                                <p id="areaResult">?</p>
+                            </div>
+                        </div>
+                        <div class="centralizaBloco">
+                            <div class="vMedia">
+                                <span> Raio: <input type="text" class="caixaNum" id="raioArea-mobile"> </span> <br>
+                                <span> Área: <input type="text" class="caixaNum" id="areaResult-mobile" readonly>
+                                </span>
+                            </div>
+                        </div>
+                        <br><br>
+                        <input id="botaoAreaCirculo" type="button" value="Calcular">
+                    </div>
+                    <!-- Comprimento do Arco -->
+                    <div class="tab-content">
+                        <h2>Comprimento do Arco</h2>
+                        <p>Fórmula: <strong>Comprimento do Arco = 2πr(θ/360)</strong>, onde <em>θ</em> é o ângulo do
+                            arco em graus.
+                        </p> <br><br>
+                        <div class="contaCirculos centralizaBloco">
+                            <span>2</span>
+                            <span>*</span>
+                            <span>π</span>
+                            <span>*</span>
+                            <input type="text" class="caixaNum inputCirculos" id="raioComprimento-desktop"
+                                placeholder="raio">
+                            <span>*</span>
+                            (<input type="text" class="caixaNum inputCirculos" id="anguloComprimento-desktop"
+                                placeholder="angulo θ">
+                            <span>&nbsp; / &nbsp;</span>
+                            <span>360)</span>
+                            <span>&nbsp; = &nbsp;</span>
+                            <div class="centralizaTexto">
+                                <p id="comprimentoResult">?</p>
+                            </div>
+                        </div>
+                        <div class="centralizaBloco">
+                            <div class="vMedia">
+                                <span> Raio: <input type="text" class="caixaNum" id="raioComprimento-mobile"> </span>
+                                <br>
+                                <span> Ângulo: <input type="text" class="caixaNum" id="anguloComprimento-mobile">
+                                </span> <br>
+                                <span> Comprimento do Arco: <input type="text" class="caixaNum" id="comprimento"
+                                        readonly> </span>
+                            </div>
+                        </div>
+                        <br><br>
+                        <input id="botaoComprimento" type="button" value="Finalizar">
+                    </div>
                 </div>
-
-                <!-- Área -->
-                <div class="tab-content">
-
-                    <h2>Cálculo da Área</h2>
-                    <p>Fórmula: <strong>Área = πr²</strong>, onde <em>r</em> é o raio do círculo.</p> <br><br>
-
-                    <div class="contaCirculos">
-                        <span>π</span>
-                        <span>*</span>
-                        <div class="centralizaTexto">
-                            <input type="text" class="caixaNum inputCirculos" id="raioArea-desktop" placeholder="raio"> <sup>2</sub> <br>
-                        </div>
-
-                        <span>&nbsp; = &nbsp;</span>
-
-                        <div class="centralizaTexto">
-                            <p id="areaResult">?</p>
-                        </div>
-                    </div>
-
-                    <div class="centralizaBloco">
-                        <div class="vMedia">
-                            <span> Raio: <input type="text" class="caixaNum" id="raioArea-mobile"> </span> <br>
-                            <span> Área: <input type="text" class="caixaNum" id="areaResult-mobile" readonly> </span>
-                        </div>
-                    </div>
-
-                    <br><br>
-
-                    <input id="botaoAreaCirculo" type="button" value="Calcular">
-                </div>
-
-                <!-- Comprimento do Arco -->
-                <div class="tab-content">
-                    <h2>Comprimento do Arco</h2>
-                    <p>Fórmula: <strong>Comprimento do Arco = 2πr(θ/360)</strong>, onde <em>θ</em> é o ângulo do arco em graus.
-                    </p> <br><br>
-
-                    <div class="contaCirculos centralizaBloco">
-
-                        <span>2</span>
-                        <span>*</span>
-                        <span>π</span>
-                        <span>*</span>
-
-                        <input type="text" class="caixaNum inputCirculos" id="raioComprimento-desktop" placeholder="raio">
-
-                        <span>*</span>
-
-                        (<input type="text" class="caixaNum inputCirculos" id="anguloComprimento-desktop" placeholder="angulo θ">
-
-                        <span>&nbsp; / &nbsp;</span>
-
-                        <span>360)</span>
-
-                        <span>&nbsp; = &nbsp;</span>
-
-                        <div class="centralizaTexto">
-                            <p id="comprimentoResult">?</p>
-                        </div>
-                    </div>
-
-                    <div class="centralizaBloco">
-                        <div class="vMedia">
-                            <span> Raio: <input type="text" class="caixaNum" id="raioComprimento-mobile"> </span> <br>
-                            <span> Ângulo: <input type="text" class="caixaNum" id="anguloComprimento-mobile"> </span> <br>
-                            <span> Comprimento do Arco: <input type="text" class="caixaNum" id="comprimento" readonly> </span>
-                        </div>
-                    </div>
-
-                    <br><br>
-
-                    <input id="botaoComprimento" type="button" value="Finalizar">
-                </div>
-
             </div>
         </div>
-    </div>
-
-    <script>
-        const tabs = document.querySelectorAll('.tab');
-        const contents = document.getElementById('tab-contents');
-
-        function showContent(index) {
-            tabs.forEach((tab, i) => {
-                tab.classList.toggle('active', i === index);
-            });
-            const translateValue = -33.4 * index;
-            contents.style.transform = `translateX(${translateValue}%)`;
-        }
-    </script>
-
-    <br><br>
+        <script>
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.getElementById('tab-contents');
+            function showContent(index) {
+                tabs.forEach((tab, i) => {
+                    tab.classList.toggle('active', i === index);
+                });
+                const translateValue = -33.4 * index;
+                contents.style.transform = `translateX(${translateValue}%)`;
+            }
+        </script>
+        <br><br>
+    </main>
 
     <footer></footer>
 
